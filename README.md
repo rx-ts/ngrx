@@ -1,2 +1,3 @@
 # ngrx
-🎉Angular + RxJS + TypeScript = 🔥
+
+🎉 Angular + RxJS + TypeScript = 🔥
