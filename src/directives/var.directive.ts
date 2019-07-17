@@ -10,11 +10,10 @@ import {
 import { Observable, Subject } from 'rxjs'
 import { skipWhile, switchMap, takeUntil } from 'rxjs/operators'
 
-import { Nullable } from '../types/public-api'
 import { ObservableInput } from '../utils/public-api'
 
 export type VarDirectiveContext<T> = T & {
-  $implicit: Nullable<T>
+  $implicit: T
 }
 
 @Directive({
@@ -23,11 +22,11 @@ export type VarDirectiveContext<T> = T & {
 export class VarDirective<T> implements OnInit, OnDestroy {
   @ObservableInput()
   @Input('rxVar')
-  private rxVar$!: Observable<Nullable<T>>
+  private rxVar$!: Observable<T>
 
   @ObservableInput(false, true)
   @Input('rxVarNullable')
-  private rxVarNullable$!: Observable<Nullable<boolean>>
+  private rxVarNullable$!: Observable<boolean>
 
   private destroy$$ = new Subject<void>()
   private context = {} as VarDirectiveContext<T>

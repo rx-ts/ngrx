@@ -8,6 +8,10 @@
     "esModuleInterop": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "paths": {
+      "@rxts/ngrx": ["src/public-api"]
+    },
     "strict": true
-  }
+  },
+  "include": [".storybook/**/*.ts", "src/**/*.ts", "stories/**/*.ts"]
 }

@@ -2,6 +2,7 @@
   "extends": ["tslint:recommended", "tslint-angular", "tslint-config-prettier"],
   "rulesDirectory": ["rxjs-tslint", "tslint-plugin-prettier"],
   "rules": {
+    "no-non-null-assertion": false,
     "no-restricted-globals": [true, "name", "length", "event"],
     "ordered-imports": [
       true,
