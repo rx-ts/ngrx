@@ -1,0 +1,30 @@
+{
+  "extends": ["tslint:recommended", "tslint-angular", "tslint-config-prettier"],
+  "rulesDirectory": ["rxjs-tslint", "tslint-plugin-prettier"],
+  "rules": {
+    "no-non-null-assertion": false,
+    "no-restricted-globals": [true, "name", "length", "event"],
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true,
+        "import-sources-order": "lowercase-first",
+        "named-imports-order": "lowercase-last"
+      }
+    ],
+    "prettier": true,
+
+    // angular
+    "component-selector": [true, "element", "rx", "kebab-case"],
+    "directive-selector": [true, "attribute", "rx", "camelCase"],
+    "no-input-rename": false,
+    "template-no-negated-async": false,
+    "use-component-view-encapsulation": false,
+
+    // rxjs
+    "rxjs-collapse-imports": true,
+    "rxjs-pipeable-operators-only": true,
+    "rxjs-no-static-observable-methods": true,
+    "rxjs-proper-imports": true
+  }
+}
