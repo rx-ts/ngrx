@@ -5,18 +5,45 @@
   "repository": "git@github.com:rx-ts/ngrx.git",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
-  "dependencies": {
-    "@angular/core": "^8.1.1",
-    "rxjs": "^6.5.2",
-    "tslib": "^1.9.0"
+  "scripts": {
+    "dev": "start-storybook -p 9001",
+    "lint": "tslint -p . -t stylish",
+    "build": "ng build"
   },
   "devDependencies": {
     "@angular-devkit/build-ng-packagr": "^0.801.1",
     "@angular/cli": "^8.1.1",
+    "@angular/common": "^8.1.1",
     "@angular/compiler": "^8.1.1",
     "@angular/compiler-cli": "^8.1.1",
+    "@angular/core": "^8.1.1",
+    "@angular/forms": "^8.1.1",
+    "@angular/platform-browser": "^8.1.1",
+    "@angular/platform-browser-dynamic": "^8.1.1",
+    "@babel/core": "^7.5.4",
+    "@storybook/angular": "^5.1.9",
+    "@types/webpack-env": "^1.14.0",
+    "babel-loader": "^8.0.6",
+    "codelyzer": "^5.1.0",
     "ng-packagr": "^5.3.0",
-    "tsickle": "^0.35.0",
-    "typescript": "^3.5.3"
+    "prettier": "^1.18.2",
+    "rxjs": "^6.5.2",
+    "rxjs-tslint": "^0.1.7",
+    "tsickle": "^0.36.0",
+    "tslib": "^1.10.0",
+    "tslint": "^5.18.0",
+    "tslint-angular": "^3.0.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.5.3",
+    "zone.js": "^0.9.1"
+  },
+  "resolutions": {
+    "raw-loader": "^1.0.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
   }
 }
