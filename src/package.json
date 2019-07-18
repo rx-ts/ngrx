@@ -6,8 +6,8 @@
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^8.1.1",
-    "@angular/core": "^8.1.1",
+    "@angular/common": "^8.1.2",
+    "@angular/core": "^8.1.2",
     "rxjs": "^6.5.2"
   },
   "sideEffects": false
