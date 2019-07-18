@@ -5,15 +5,28 @@
   "projects": {
     "ngrx": {
       "root": "src",
-      "sourceRoot": "src",
       "projectType": "library",
-      "prefix": "rx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "src/tsconfig.lib.json",
             "project": "src/ng-package.json"
+          }
+        }
+      }
+    },
+    "storybook": {
+      "root": "stories",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular",
+          "options": {
+            "tsConfig": "tsconfig.json",
+            "outputPath": "dist",
+            "styles": [],
+            "scripts": []
           }
         }
       }

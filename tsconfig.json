@@ -4,8 +4,9 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "lib": ["dom", "esnext"],
     "esModuleInterop": true,
+    "moduleResolution": "node",
+    "lib": ["dom", "esnext"],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
