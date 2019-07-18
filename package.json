@@ -8,20 +8,20 @@
   "scripts": {
     "dev": "start-storybook -p 9001",
     "lint": "tslint -p . -t stylish",
-    "build": "ng build",
-    "deploy-storybook": "storybook-to-ghpages"
+    "build": "ng build"
   },
   "devDependencies": {
-    "@angular-devkit/build-ng-packagr": "^0.801.1",
-    "@angular/cli": "^8.1.1",
-    "@angular/common": "^8.1.1",
-    "@angular/compiler": "^8.1.1",
-    "@angular/compiler-cli": "^8.1.1",
-    "@angular/core": "^8.1.1",
-    "@angular/forms": "^8.1.1",
-    "@angular/platform-browser": "^8.1.1",
-    "@angular/platform-browser-dynamic": "^8.1.1",
-    "@babel/core": "^7.5.4",
+    "@angular-devkit/build-angular": "^0.801.2",
+    "@angular-devkit/build-ng-packagr": "^0.801.2",
+    "@angular/cli": "^8.1.2",
+    "@angular/common": "^8.1.2",
+    "@angular/compiler": "^8.1.2",
+    "@angular/compiler-cli": "^8.1.2",
+    "@angular/core": "^8.1.2",
+    "@angular/forms": "^8.1.2",
+    "@angular/platform-browser": "^8.1.2",
+    "@angular/platform-browser-dynamic": "^8.1.2",
+    "@babel/core": "^7.5.5",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@storybook/addon-actions": "^5.1.9",
@@ -31,9 +31,8 @@
     "@storybook/addon-notes": "^5.1.9",
     "@storybook/addon-storysource": "^5.1.9",
     "@storybook/angular": "^5.1.9",
-    "@storybook/storybook-deployer": "^2.8.1",
-    "@types/node": "^12.6.6",
-    "@types/storybook__addon-knobs": "^5.0.2",
+    "@types/node": "^12.6.8",
+    "@types/storybook__addon-knobs": "^5.0.3",
     "@types/webpack": "^4.4.35",
     "@types/webpack-env": "^1.14.0",
     "@types/webpack-merge": "^4.1.5",
@@ -45,6 +44,7 @@
     "prettier": "^1.18.2",
     "rxjs": "^6.5.2",
     "rxjs-tslint": "^0.1.7",
+    "standard-version": "^6.0.1",
     "ts-node": "^8.3.0",
     "tsickle": "^0.36.0",
     "tslib": "^1.10.0",
@@ -55,9 +55,6 @@
     "typescript": "^3.5.3",
     "webpack-merge": "^4.2.1",
     "zone.js": "^0.9.1"
-  },
-  "resolutions": {
-    "raw-loader": "^1.0.0"
   },
   "commitlint": {
     "extends": [
@@ -94,8 +91,9 @@
       }
     ]
   },
-  "storybook-deployer": {
-    "gitUsername": "JounQin",
-    "gitEmail": "admin@1stg.me"
+  "standard-version": {
+    "skip": {
+      "bump": true
+    }
   }
 }
