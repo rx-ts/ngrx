@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/rx-ts/ngrx/compare/v0.1.0...v0.1.1) (2019-07-18)
+
+
+### Bug Fixes
+
+* improve build config and tree shaking ([ce97050](https://github.com/rx-ts/ngrx/commit/ce97050))
+
+
+
 ## 0.1.0 (2019-07-18)
 
 ### Bug Fixes
