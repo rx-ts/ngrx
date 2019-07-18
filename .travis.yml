@@ -7,11 +7,25 @@ cache: yarn
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH="$HOME/.yarn/bin:$PATH"
-  - git config --global user.name 'JounQin'
-  - git config --global user.email 'admin@1stg.me'
 
 script:
   - set -e
   - yarn lint
   - yarn build
-  - 'if [[ $TRAVIS_BRANCH = "master" && "$TRAVIS_PULL_REQUEST" = "false" ]]; then yarn deploy-storybook --ci; fi'
+  - yarn run build-storybook
+
+deploy:
+  - provider: script
+    script: standard-version && git push --follow-tags origin release && cd dist && npm publish --access=public
+    on:
+      branch: release
+  - provider: pages
+    email: admin@1stg.me
+    name: JounQin
+    skip_cleanup: true
+    github_token: $GH_TOKEN
+    keep_history: true
+    allow_empty_commit: false
+    local_dir: storybook-static
+    on:
+      branch: master
