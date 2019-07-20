@@ -61,7 +61,7 @@ class AsyncDirectiveComponent {
 
   fetchTodo(todoId: string) {
     return typeof todoId === 'number'
-      ? this.http.get('http://jsonplaceholder.typicode.com/todos/' + todoId)
+      ? this.http.get('//jsonplaceholder.typicode.com/todos/' + todoId)
       : EMPTY
   }
 }
