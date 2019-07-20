@@ -11,7 +11,10 @@ export default ({ config }: { config: Configuration }) =>
       rules: [
         {
           test: /\.stories\.tsx?$/,
-          loaders: ['@storybook/addon-storysource/loader'],
+          loader: '@storybook/addon-storysource/loader',
+          options: {
+            parser: 'typescript',
+          },
           enforce: 'pre',
         },
       ],

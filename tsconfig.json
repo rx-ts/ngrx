@@ -5,14 +5,17 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
+    "importHelpers": true,
     "moduleResolution": "node",
     "lib": ["dom", "esnext"],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@rxts/ngrx": ["src/public-api"]
+      "@rxts/ngrx": ["src/public-api"],
+      "lodash": ["lodash-es"]
     },
-    "strict": true
+    "strict": true,
+    "target": "es5"
   },
   "include": [".storybook/**/*.ts", "src/**/*.ts", "stories/**/*.ts"]
 }
