@@ -8,7 +8,7 @@ import {
   ViewContainerRef,
   ViewRef,
 } from '@angular/core'
-import { Observable, Subject, combineLatest } from 'rxjs'
+import { Observable, Subject, Subscription, combineLatest } from 'rxjs'
 import { startWith, takeUntil } from 'rxjs/operators'
 
 import { Callback, Nullable } from '../types/public-api'
@@ -49,6 +49,7 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
   } as IAsyncDirectiveContext<T, E>
 
   private viewRef: Nullable<ViewRef>
+  private sub: Nullable<Subscription>
 
   constructor(
     private templateRef: TemplateRef<any>,
@@ -74,7 +75,9 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
           error: null,
         })
 
-        fetcher.call(context, params).subscribe(
+        this.disposeSub()
+
+        this.sub = fetcher.call(context, params).subscribe(
           data => (this.context.$implicit = data),
           error => (this.context.error = error),
           () => {
@@ -95,12 +98,21 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
   }
 
   ngOnDestroy() {
+    this.disposeSub()
+
     this.destroy$$.next()
     this.destroy$$.complete()
 
     if (this.viewRef) {
       this.viewRef.destroy()
       this.viewRef = null
+    }
+  }
+
+  disposeSub() {
+    if (this.sub) {
+      this.sub.unsubscribe()
+      this.sub = null
     }
   }
 }
