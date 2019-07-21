@@ -1,36 +1,15 @@
 import { CommonModule } from '@angular/common'
 import { HttpClient, HttpClientModule } from '@angular/common/http'
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { RxDirectivesModule } from '@rxts/ngrx'
+import { number } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/angular'
-import { debounce } from 'lodash'
 import { EMPTY, Subject, interval } from 'rxjs'
 import { map, pairwise, take } from 'rxjs/operators'
 
 @Component({
+  selector: 'rx-async-directive-demo',
   template: `
-    <label>
-      Todo Id:
-      <input
-        placeholder="Please enter a todo id, 1-200"
-        type="number"
-        [ngModel]="todoId"
-        (ngModelChange)="onTodoIdChange($event)"
-      />
-    </label>
-    <label>
-      Retry Times:
-      <input
-        placeholder="Please enter the retry times on error"
-        type="number"
-        [ngModel]="retryTimes"
-        (ngModelChange)="onRetryTimesChange($event)"
-      />
-    </label>
     <button (click)="refetch$$.next()">Refetch (Outside rxAsync)</button>
     <div
       *rxAsync="
@@ -57,33 +36,15 @@ import { map, pairwise, take } from 'rxjs/operators'
 class AsyncDirectiveComponent {
   context = this
 
+  @Input()
   todoId = 1
-  retryTimes?: number
+
+  @Input()
+  retryTimes = 0
 
   refetch$$ = new Subject<void>()
 
-  onTodoIdChange = debounce(function(
-    this: AsyncDirectiveComponent,
-    todoId: number,
-  ) {
-    this.todoId = todoId
-    this.cdr.markForCheck()
-  },
-  500)
-
-  onRetryTimesChange = debounce(function(
-    this: AsyncDirectiveComponent,
-    retryTimes: number,
-  ) {
-    if (typeof retryTimes !== 'number') {
-      return
-    }
-    this.retryTimes = retryTimes
-    this.cdr.markForCheck()
-  },
-  500)
-
-  constructor(private cdr: ChangeDetectorRef, private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   fetchTodo(todoId: string) {
     return typeof todoId === 'number'
@@ -100,7 +61,16 @@ const moduleMetadata = {
 storiesOf('Directives', module)
   .add('Async Directive', () => ({
     moduleMetadata,
-    component: AsyncDirectiveComponent,
+    template: /* HTML */ `
+      <rx-async-directive-demo
+        [todoId]="todoId"
+        [retryTimes]="retryTimes"
+      ></rx-async-directive-demo>
+    `,
+    props: {
+      todoId: number('todoId', 1),
+      retryTimes: number('retryTimes', 0),
+    },
   }))
   .add(
     'Var Directive',

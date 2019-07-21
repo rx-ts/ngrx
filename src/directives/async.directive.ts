@@ -83,12 +83,12 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
         withLatestFrom(this.retryTimes$),
       )
       .subscribe(([[context, fetcher, params], retryTimes]) => {
+        this.disposeSub()
+
         Object.assign(this.context, {
           loading: true,
           error: null,
         })
-
-        this.disposeSub()
 
         this.sub = fetcher
           .call(context, params)
@@ -96,7 +96,9 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
             retry(retryTimes),
             finalize(() => {
               this.context.loading = false
-              this.viewRef!.markForCheck()
+              if (this.viewRef) {
+                this.viewRef.detectChanges()
+              }
             }),
           )
           .subscribe(
