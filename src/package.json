@@ -1,6 +1,6 @@
 {
   "name": "@rxts/ngrx",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "🎉 Angular + RxJS + TypeScript = 🔥",
   "repository": "git@github.com:rx-ts/ngrx.git",
   "author": "JounQin <admin@1stg.me>",
