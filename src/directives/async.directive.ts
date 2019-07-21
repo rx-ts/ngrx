@@ -9,7 +9,13 @@ import {
   ViewRef,
 } from '@angular/core'
 import { Observable, Subject, Subscription, combineLatest } from 'rxjs'
-import { retry, startWith, takeUntil, withLatestFrom } from 'rxjs/operators'
+import {
+  finalize,
+  retry,
+  startWith,
+  takeUntil,
+  withLatestFrom,
+} from 'rxjs/operators'
 
 import { Callback, Nullable } from '../types/public-api'
 import { ObservableInput } from '../utils/public-api'
@@ -86,14 +92,16 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
 
         this.sub = fetcher
           .call(context, params)
-          .pipe(retry(retryTimes))
+          .pipe(
+            retry(retryTimes),
+            finalize(() => {
+              this.context.loading = false
+              this.viewRef!.markForCheck()
+            }),
+          )
           .subscribe(
             data => (this.context.$implicit = data),
             error => (this.context.error = error),
-            () => {
-              this.context.loading = false
-              this.viewRef!.markForCheck()
-            },
           )
 
         if (this.viewRef) {
