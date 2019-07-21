@@ -13,12 +13,24 @@ import { map, pairwise, take } from 'rxjs/operators'
 
 @Component({
   template: `
-    <input
-      placeholder="Please enter a todo id, 1-200"
-      type="number"
-      [ngModel]="todoId"
-      (ngModelChange)="onTodoIdChange($event)"
-    />
+    <label>
+      Todo Id:
+      <input
+        placeholder="Please enter a todo id, 1-200"
+        type="number"
+        [ngModel]="todoId"
+        (ngModelChange)="onTodoIdChange($event)"
+      />
+    </label>
+    <label>
+      Retry Times:
+      <input
+        placeholder="Please enter the retry times on error"
+        type="number"
+        [ngModel]="retryTimes"
+        (ngModelChange)="onRetryTimesChange($event)"
+      />
+    </label>
     <button (click)="refetch$$.next()">Refetch (Outside rxAsync)</button>
     <div
       *rxAsync="
@@ -29,7 +41,8 @@ import { map, pairwise, take } from 'rxjs/operators'
         context: context;
         fetcher: fetchTodo;
         params: todoId;
-        refetch: refetch$$
+        refetch: refetch$$;
+        retryTimes: retryTimes
       "
     >
       <button (click)="reload()">Reload</button>
@@ -45,6 +58,7 @@ class AsyncDirectiveComponent {
   context = this
 
   todoId = 1
+  retryTimes?: number
 
   refetch$$ = new Subject<void>()
 
@@ -53,6 +67,18 @@ class AsyncDirectiveComponent {
     todoId: number,
   ) {
     this.todoId = todoId
+    this.cdr.markForCheck()
+  },
+  500)
+
+  onRetryTimesChange = debounce(function(
+    this: AsyncDirectiveComponent,
+    retryTimes: number,
+  ) {
+    if (typeof retryTimes !== 'number') {
+      return
+    }
+    this.retryTimes = retryTimes
     this.cdr.markForCheck()
   },
   500)
