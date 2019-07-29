@@ -1,6 +1,6 @@
 {
   "name": "@rxts/ngrx",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "🎉 Angular + RxJS + TypeScript = 🔥",
   "repository": "git@github.com:rx-ts/ngrx.git",
   "author": "JounQin <admin@1stg.me>",
@@ -57,7 +57,7 @@
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.5.3",
     "webpack-merge": "^4.2.1",
-    "zone.js": "^0.9.1"
+    "zone.js": "^0.10.0"
   },
   "commitlint": {
     "extends": [
