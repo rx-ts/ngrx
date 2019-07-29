@@ -1,13 +1,13 @@
 {
   "name": "@rxts/ngrx",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "🎉 Angular + RxJS + TypeScript = 🔥",
   "repository": "git@github.com:rx-ts/ngrx.git",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": ">=7.0.0",
-    "@angular/core": ">=7.0.0",
+    "@angular/common": ">=8.1.3",
+    "@angular/core": ">=8.1.3",
     "rxjs": "^6.5.2"
   },
   "sideEffects": false
