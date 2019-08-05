@@ -1,6 +1,6 @@
 {
   "name": "@rxts/ngrx",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "🎉 Angular + RxJS + TypeScript = 🔥",
   "repository": "git@github.com:rx-ts/ngrx.git",
   "author": "JounQin <admin@1stg.me>",
@@ -42,7 +42,7 @@
     "husky": "^3.0.1",
     "lint-staged": "^9.2.1",
     "lodash-es": "^4.17.15",
-    "ng-packagr": "^5.3.0",
+    "ng-packagr": "^5.4.3",
     "prettier": "^1.18.2",
     "prettier-config-1stg": "^0.1.0",
     "rxjs": "^6.5.2",
@@ -57,7 +57,7 @@
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.5.3",
     "webpack-merge": "^4.2.1",
-    "zone.js": "^0.10.0"
+    "zone.js": "^0.10.1"
   },
   "commitlint": {
     "extends": [
