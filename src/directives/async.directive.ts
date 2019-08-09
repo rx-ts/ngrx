@@ -9,13 +9,7 @@ import {
   ViewRef,
 } from '@angular/core'
 import { Observable, Subject, Subscription, combineLatest } from 'rxjs'
-import {
-  finalize,
-  retry,
-  startWith,
-  takeUntil,
-  withLatestFrom,
-} from 'rxjs/operators'
+import { finalize, retry, startWith, takeUntil } from 'rxjs/operators'
 
 import { Callback, Nullable } from '../types/public-api'
 import { ObservableInput } from '../utils/public-api'
@@ -47,9 +41,8 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
   @Input('rxAsyncRefetch')
   private refetch$$ = new Subject<void>()
 
-  @ObservableInput()
   @Input('rxAsyncRetryTimes')
-  private retryTimes$!: Observable<number>
+  private retryTimes?: number
 
   private destroy$$ = new Subject<void>()
   private reload$$ = new Subject<void>()
@@ -78,11 +71,8 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
       this.refetch$$.pipe(startWith(null)),
       this.reload$$.pipe(startWith(null)),
     ])
-      .pipe(
-        takeUntil(this.destroy$$),
-        withLatestFrom(this.retryTimes$),
-      )
-      .subscribe(([[context, fetcher, params], retryTimes]) => {
+      .pipe(takeUntil(this.destroy$$))
+      .subscribe(([context, fetcher, params]) => {
         this.disposeSub()
 
         Object.assign(this.context, {
@@ -93,7 +83,7 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
         this.sub = fetcher
           .call(context, params)
           .pipe(
-            retry(retryTimes),
+            retry(this.retryTimes),
             finalize(() => {
               this.context.loading = false
               if (this.viewRef) {

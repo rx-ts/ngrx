@@ -1,6 +1,6 @@
 language: node_js
 
-node_js: stable
+node_js: --lts
 
 cache: yarn
 
@@ -11,7 +11,6 @@ before_install:
   - git config --global user.email 'admin@1stg.me'
 
 script:
-  - set -e
   - yarn lint
   - yarn build
   - yarn run build-storybook
@@ -21,7 +20,7 @@ deploy:
     skip_cleanup: true
     script: bash deploy.sh
     on:
-      branch: release
+      branch: master
   - provider: pages
     email: admin@1stg.me
     name: JounQin
