@@ -5,6 +5,10 @@
   "repository": "git@github.com:rx-ts/ngrx.git",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "src"
+  ],
   "scripts": {
     "dev": "start-storybook -p 9001",
     "lint": "tslint -p . -t stylish",
