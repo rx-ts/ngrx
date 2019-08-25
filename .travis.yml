@@ -13,7 +13,7 @@ before_install:
 script:
   - yarn lint
   - yarn build
-  - yarn run build-storybook
+  - yarn build-storybook
 
 deploy:
   - provider: script

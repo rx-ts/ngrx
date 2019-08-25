@@ -1,21 +1,15 @@
 {
+  "extends": "@1stg/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
+    "declarationMap": false,
     "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "importHelpers": true,
-    "moduleResolution": "node",
     "lib": ["dom", "esnext"],
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "module": "commonjs",
     "paths": {
       "@rxts/ngrx": ["src/public-api"],
       "lodash": ["lodash-es"]
-    },
-    "strict": true,
-    "target": "es5"
+    }
   },
   "include": [".storybook/**/*.ts", "src/**/*.ts", "stories/**/*.ts"]
 }

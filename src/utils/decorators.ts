@@ -17,7 +17,7 @@ export function ValueHook<T = any, K extends keyof T = any>(
   setter?: (this: T, value?: T[K]) => boolean | void,
   getter?: (this: T, value?: T[K]) => T[K],
 ) {
-  return (target: T, propertyKey: K) => {
+  return (target: T, propertyKey: K, _parameterIndex?: number) => {
     const { oGetter, oSetter } = checkDescriptor(target, propertyKey)
 
     const symbol = Symbol()
@@ -60,7 +60,7 @@ export function ObservableInput<
   return (target: T, oPropertyKey: OK) => {
     if (!(oPropertyKey as string).endsWith('$')) {
       throw new TypeError(
-        `property ${oPropertyKey} should be a subject and its name should end with $`,
+        `property ${oPropertyKey} should be an observable and its name should end with $`,
       )
     }
 

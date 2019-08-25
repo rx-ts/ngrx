@@ -1,5 +1,3 @@
-# Decorators
-
 The `evens$`and `odds$` observables are passed as plain inputs,
 but that are transformed into observables again automatically by `ObservableInput` decorator.
 
@@ -10,11 +8,11 @@ but that are transformed into observables again automatically by `ObservableInpu
 })
 export class DecoratorsComponent {
   @ObservableInput()
-  @Input('evens')
+  @Input(true)
   evens$!: Observable<number>
 
   @ObservableInput()
-  @Input('odds')
+  @Input(true)
   odds$!: Observable<number>
 
   merged$ = merge(this.evens$, this.odds$)

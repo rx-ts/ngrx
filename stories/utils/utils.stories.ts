@@ -1,3 +1,4 @@
+import markdown from '@rxts/ngrx/utils/decorators.md'
 import { select, text } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/angular'
 import { interval, partition } from 'rxjs'
@@ -5,7 +6,6 @@ import { shareReplay, take } from 'rxjs/operators'
 
 import { Strategy } from './decorators/component'
 import { DecoratorsModule } from './decorators/module'
-import markdown from './decorators/README.md'
 
 const [evens$, odds$] = partition(
   interval(1000).pipe(take(20)),
