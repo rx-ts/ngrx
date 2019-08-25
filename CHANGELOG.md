@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/rx-ts/ngrx/compare/v0.3.2...v0.4.0) (2019-08-25)
+
+
+### Features
+
+* add TranslateModule, close [#19](https://github.com/rx-ts/ngrx/issues/19) ([b254663](https://github.com/rx-ts/ngrx/commit/b254663))
+
 ### [0.3.2](https://github.com/rx-ts/ngrx/compare/v0.3.0...v0.3.2) (2019-08-09)
 
 ### Features
