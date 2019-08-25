@@ -14,11 +14,11 @@ import { finalize, retry, startWith, takeUntil } from 'rxjs/operators'
 import { Callback, Nullable } from '../types/public-api'
 import { ObservableInput } from '../utils/public-api'
 
-export interface IAsyncDirectiveContext<T, E> {
+export interface AsyncDirectiveContext<T, E> {
   $implicit: T
   loading: boolean
   error: Nullable<E>
-  reload: Callback<never, void>
+  reload: Callback
 }
 
 @Directive({
@@ -28,35 +28,35 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
   implements OnInit, OnDestroy {
   @ObservableInput()
   @Input('rxAsyncContext')
-  private context$!: Observable<any>
+  private readonly context$!: Observable<unknown>
 
   @ObservableInput()
   @Input('rxAsyncFetcher')
-  private fetcher$!: Observable<Callback<[P], Observable<T>>>
+  private readonly fetcher$!: Observable<Callback<[P], Observable<T>>>
 
   @ObservableInput()
   @Input('rxAsyncParams')
-  private params$!: Observable<P>
+  private readonly params$!: Observable<P>
 
   @Input('rxAsyncRefetch')
-  private refetch$$ = new Subject<void>()
+  private readonly refetch$$ = new Subject<void>()
 
   @Input('rxAsyncRetryTimes')
-  private retryTimes?: number
+  private readonly retryTimes?: number
 
-  private destroy$$ = new Subject<void>()
-  private reload$$ = new Subject<void>()
+  private readonly destroy$$ = new Subject<void>()
+  private readonly reload$$ = new Subject<void>()
 
-  private context = {
+  private readonly context = {
     reload: this.reload.bind(this),
-  } as IAsyncDirectiveContext<T, E>
+  } as AsyncDirectiveContext<T, E>
 
   private viewRef: Nullable<ViewRef>
   private sub: Nullable<Subscription>
 
   constructor(
-    private templateRef: TemplateRef<any>,
-    private viewContainerRef: ViewContainerRef,
+    private readonly templateRef: TemplateRef<unknown>,
+    private readonly viewContainerRef: ViewContainerRef,
   ) {}
 
   reload() {

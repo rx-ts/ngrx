@@ -24,11 +24,11 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
   private lastRemoteLoaded?: boolean
   private onChange?: Nullable<Subscription>
 
-  private destroy$$ = new Subject<void>()
+  private readonly destroy$$ = new Subject<void>()
 
   constructor(
-    private cdr: ChangeDetectorRef,
-    private translate: TranslateService,
+    private readonly cdr: ChangeDetectorRef,
+    private readonly translate: TranslateService,
   ) {
     this.translate.remoteLoaded$
       .pipe(
@@ -66,6 +66,11 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
     return this.value
   }
 
+  ngOnDestroy() {
+    this.destroy$$.next()
+    this.destroy$$.complete()
+  }
+
   private updateValue(
     key: TranslateKey,
     data?: unknown,
@@ -82,10 +87,5 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       this.onChange.unsubscribe()
       this.onChange = null
     }
-  }
-
-  ngOnDestroy() {
-    this.destroy$$.next()
-    this.destroy$$.complete()
   }
 }

@@ -1,6 +1,6 @@
-import { ITranslation } from './types'
+import { Translation } from './types'
 
-const translation: ITranslation = {
+const translation: Translation = {
   language: 'English',
 }
 

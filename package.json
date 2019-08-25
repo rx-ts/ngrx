@@ -1,6 +1,6 @@
 {
-  "name": "@rxts/ngrx",
-  "version": "0.4.0",
+  "name": "ngrx",
+  "version": "0.0.0",
   "description": "🎉 Angular + RxJS + TypeScript = 🔥",
   "repository": "git@github.com:rx-ts/ngrx.git",
   "author": "JounQin <admin@1stg.me>",
@@ -11,16 +11,19 @@
   ],
   "scripts": {
     "dev": "start-storybook -p 9001",
-    "lint:scss": "stylelint {.storybook,src,stories}/**/*.scss",
+    "lint:scss": "stylelint .storybook/**/*.scss",
     "lint:ts": "tslint -p . -t stylish",
     "lint": "run-p lint:*",
     "build": "ng build"
   },
   "devDependencies": {
+    "@1stg/eslint-config": "^0.2.2",
     "@1stg/husky-config": "^0.1.0",
-    "@1stg/prettier-config": "^0.1.0",
+    "@1stg/lint-staged": "^0.3.0",
+    "@1stg/prettier-config": "^0.1.1",
     "@1stg/stylelint-config": "^0.2.0",
     "@1stg/tsconfig": "^0.1.0",
+    "@1stg/tslint-config": "^0.1.1",
     "@angular-devkit/build-angular": "^0.803.0",
     "@angular-devkit/build-ng-packagr": "^0.803.0",
     "@angular/cli": "^8.3.0",
@@ -47,8 +50,8 @@
     "@types/webpack-env": "^1.14.0",
     "@types/webpack-merge": "^4.1.5",
     "babel-loader": "^8.0.6",
-    "codelyzer": "^5.1.0",
     "commitlint": "^8.1.0",
+    "eslint": "^6.2.2",
     "husky": "^3.0.4",
     "lint-staged": "^9.2.3",
     "lodash-es": "^4.17.15",
@@ -57,7 +60,6 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
     "rxjs": "^6.5.2",
-    "rxjs-tslint": "^0.1.7",
     "sass": "^1.22.10",
     "standard-version": "^7.0.0",
     "stylelint": "^10.1.0",
@@ -65,9 +67,6 @@
     "tsickle": "^0.37.0",
     "tslib": "^1.10.0",
     "tslint": "^5.19.0",
-    "tslint-angular": "^3.0.2",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.5.3",
     "webpack-merge": "^4.2.1",
     "zone.js": "^0.10.2"
@@ -75,16 +74,6 @@
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
-    ]
-  },
-  "lint-staged": {
-    "*.{html,json,md,scss,yml}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.ts": [
-      "tslint -p . -t stylish --fix",
-      "git add"
     ]
   },
   "prettier": "@1stg/prettier-config/angular",

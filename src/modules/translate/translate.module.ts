@@ -16,7 +16,7 @@ import {
   TOKEN_TRANSLATIONS,
 } from './tokens'
 import { TranslatePipe } from './translate.pipe'
-import { ITranslateOptions, Translations } from './types'
+import { TranslateOptions, Translations } from './types'
 
 const EXPORTABLE = [TranslatePipe]
 
@@ -34,7 +34,7 @@ export class TranslateModule {
     loose = false,
     remoteTranslations,
     remoteUrl = remoteTranslations ? null : DEFAULT_REMOTE_URL,
-  }: ITranslateOptions = {}): ModuleWithProviders {
+  }: TranslateOptions = {}): ModuleWithProviders {
     const providers: Provider[] = [
       {
         provide: TOKEN_LOCALE,

@@ -27,7 +27,7 @@ import {
   TOKEN_REMOTE_URL,
   TOKEN_TRANSLATIONS,
 } from './tokens'
-import { ITranslation, TranslateKey, Translations } from './types'
+import { TranslateKey, Translation, Translations } from './types'
 
 @Injectable({
   providedIn: 'root',
@@ -35,17 +35,19 @@ import { ITranslation, TranslateKey, Translations } from './types'
 export class TranslateService implements OnDestroy {
   @ObservableInput(true)
   readonly locale$!: Observable<Locale>
+
   @ObservableInput(true)
   readonly defaultLocale$!: Observable<Locale>
 
-  private _remoteLoaded?: boolean
   get remoteLoaded() {
     return this._remoteLoaded
   }
+
   @ObservableInput('_remoteLoaded')
   readonly remoteLoaded$!: Observable<boolean | undefined>
 
-  private destroy$$ = new Subject<void>()
+  private _remoteLoaded?: boolean
+  private readonly destroy$$ = new Subject<void>()
 
   constructor(
     @Inject(TOKEN_LOCALE)
@@ -113,9 +115,10 @@ export class TranslateService implements OnDestroy {
    * 从远程 url 模板和区域获取翻译包
    */
   fetchTranslation(remoteUrl: string): Observable<Translations>
-  fetchTranslation(remoteUrl: string, locale: string): Observable<ITranslation>
+  // eslint-disable-next-line @typescript-eslint/unified-signatures
+  fetchTranslation(remoteUrl: string, locale: string): Observable<Translation>
   fetchTranslation(remoteUrl: string, locale?: string) {
-    if (isDevMode() && remoteUrl.match(LOCALE_PLACEHOLDER_REGEX) && !locale) {
+    if (isDevMode() && LOCALE_PLACEHOLDER_REGEX.exec(remoteUrl) && !locale) {
       throw new TypeError(
         '`locale` is required sine the provided remote url contains locale placeholder',
       )
@@ -157,8 +160,8 @@ export class TranslateService implements OnDestroy {
         (baseHref.endsWith('/') ? baseHref : baseHref + '/') + remoteUrl
     }
     const remoteTranslations$: Observable<
-      Partial<Record<Locale, ITranslation>>
-    > = remoteUrl.match(LOCALE_PLACEHOLDER_REGEX)
+      Partial<Record<Locale, Translation>>
+    > = LOCALE_PLACEHOLDER_REGEX.exec(remoteUrl)
       ? forkJoin(
           this.locales.map(locale =>
             this.fetchTranslation(remoteUrl, locale).pipe(
@@ -179,7 +182,12 @@ export class TranslateService implements OnDestroy {
               })),
             ),
           ),
-        ).pipe(map(_ => _.reduce(Object.assign)))
+        ).pipe(
+          map(_ =>
+            // eslint-disable-next-line @typescript-eslint/unbound-method
+            _.reduce(Object.assign),
+          ),
+        )
       : this.fetchTranslation(remoteUrl).pipe(
           catchError(error => (isDevMode() ? throwError(error) : EMPTY)),
         )

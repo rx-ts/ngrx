@@ -2,15 +2,16 @@ import { Arrayable, Nullable } from '../../types/public-api'
 
 import { Locale } from './constants'
 
-export interface ITranslation {
-  [key: string]: Arrayable<string | number | boolean | ITranslation>
+export interface Translation {
+  [key: string]: Arrayable<string | number | boolean | Translation>
 }
 
-export type Translations = Partial<Record<Locale, ITranslation>>
+// eslint-disable-next-line @typescript-eslint/no-type-alias
+export type Translations = Partial<Record<Locale, Translation>>
 
 export type TranslateKey = string | Partial<Record<Locale, string>>
 
-export interface ITranslateOptions {
+export interface TranslateOptions {
   locale?: Locale
   defaultLocale?: Locale
   locales?: Locale[]
