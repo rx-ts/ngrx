@@ -16,6 +16,7 @@ storiesOf('Modules', module).add(
         TranslateModule.forRoot({
           translations: {
             zh: {
+              // eslint-disable-next-line @typescript-eslint/camelcase
               toggle_locale: '切换区域',
               nested: {
                 params: '证件号: {{ id }}, 姓名: {{ name }}',

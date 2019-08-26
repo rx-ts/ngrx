@@ -44,11 +44,11 @@ class AsyncDirectiveComponent {
 
   refetch$$ = new Subject<void>()
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
-  fetchTodo(todoId: string) {
+  fetchTodo(todoId?: number) {
     return typeof todoId === 'number'
-      ? this.http.get('//jsonplaceholder.typicode.com/todos/' + todoId)
+      ? this.http.get(`//jsonplaceholder.typicode.com/todos/${todoId}`)
       : EMPTY
   }
 }

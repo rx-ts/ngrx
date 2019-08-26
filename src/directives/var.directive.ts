@@ -22,19 +22,19 @@ export type VarDirectiveContext<T> = T & {
 export class VarDirective<T> implements OnInit, OnDestroy {
   @ObservableInput()
   @Input('rxVar')
-  private rxVar$!: Observable<T>
+  private readonly rxVar$!: Observable<T>
 
   @ObservableInput(false, true)
   @Input('rxVarNullable')
-  private rxVarNullable$!: Observable<boolean>
+  private readonly rxVarNullable$!: Observable<boolean>
 
-  private destroy$$ = new Subject<void>()
-  private context = {} as VarDirectiveContext<T>
+  private readonly destroy$$ = new Subject<void>()
+  private readonly context = {} as VarDirectiveContext<T>
   private viewRef?: ViewRef
 
   constructor(
-    private templateRef: TemplateRef<any>,
-    private viewContainerRef: ViewContainerRef,
+    private readonly templateRef: TemplateRef<unknown>,
+    private readonly viewContainerRef: ViewContainerRef,
   ) {}
 
   ngOnInit() {

@@ -13,6 +13,7 @@ const checkDescriptor = <T, K extends keyof T>(target: T, propertyKey: K) => {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function ValueHook<T = any, K extends keyof T = any>(
   setter?: (this: T, value?: T[K]) => boolean | void,
   getter?: (this: T, value?: T[K]) => T[K],
@@ -20,7 +21,7 @@ export function ValueHook<T = any, K extends keyof T = any>(
   return (target: T, propertyKey: K, _parameterIndex?: number) => {
     const { oGetter, oSetter } = checkDescriptor(target, propertyKey)
 
-    const symbol = Symbol()
+    const symbol = Symbol('private property hook')
 
     type Mixed = T & {
       [symbol]: T[K]
@@ -53,9 +54,10 @@ export function ValueHook<T = any, K extends keyof T = any>(
 }
 
 export function ObservableInput<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   T = any,
-  OK extends keyof T = any,
-  K extends keyof T = any
+  OK extends keyof T = keyof T,
+  K extends keyof T = keyof T
 >(propertyKey?: K | boolean, initialValue?: ObservedValueOf<T[OK]>) {
   return (target: T, oPropertyKey: OK) => {
     if (!(oPropertyKey as string).endsWith('$')) {
@@ -72,7 +74,7 @@ export function ObservableInput<
       )
     }
 
-    const symbol = Symbol()
+    const symbol = Symbol('private property hook')
 
     type OT = ObservedValueOf<T[OK]>
 

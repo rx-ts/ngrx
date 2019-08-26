@@ -14,7 +14,7 @@ import { TranslateService } from '@rxts/ngrx'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TranslateComponent {
-  constructor(private translate: TranslateService) {}
+  constructor(private readonly translate: TranslateService) {}
 
   toggleLocale() {
     this.translate.toggleLocale()

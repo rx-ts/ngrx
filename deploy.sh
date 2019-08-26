@@ -11,7 +11,11 @@ git checkout master
 PKG_VERSION=$(jq -r '.version' src/package.json)
 
 git fetch origin v"$PKG_VERSION" || {
-  yarn standard-version -a --release-as "$PKG_VERSION"
+  yarn global add standard-version
+  standard-version -a --release-as "$PKG_VERSION"
+  tmp=$(mktemp)
+  jq '.version = "0.0.0"' package.json> "$tmp" && \mv "$tmp" package.json
+  git commit --amend --no-edit
   git push --follow-tags origin master
   npm publish dist --access=public
 }
