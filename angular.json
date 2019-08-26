@@ -25,7 +25,7 @@
           "options": {
             "tsConfig": "tsconfig.json",
             "outputPath": "dist",
-            "styles": [],
+            "styles": [".storybook/global.scss"],
             "scripts": []
           }
         }
