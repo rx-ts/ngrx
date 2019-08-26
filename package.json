@@ -1,6 +1,6 @@
 {
   "name": "ngrx",
-  "version": "0.4.1",
+  "version": "0.0.0",
   "description": "🎉 Angular + RxJS + TypeScript = 🔥",
   "repository": "git@github.com:rx-ts/ngrx.git",
   "author": "JounQin <admin@1stg.me>",
@@ -92,6 +92,11 @@
   },
   "resolutions": {
     "sass-loader": "^7.3.1"
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true
+    }
   },
   "stylelint": {
     "extends": "@1stg/stylelint-config/scss"
