@@ -17,7 +17,7 @@
     "build": "ng build"
   },
   "devDependencies": {
-    "@1stg/eslint-config": "^0.2.2",
+    "@1stg/eslint-config": "^0.3.0",
     "@1stg/husky-config": "^0.1.0",
     "@1stg/lint-staged": "^0.3.0",
     "@1stg/prettier-config": "^0.1.1",
