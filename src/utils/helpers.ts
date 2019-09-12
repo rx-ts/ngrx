@@ -7,4 +7,4 @@ export const getBaseHref = () => {
   return (base && base.getAttribute('href')) || '/'
 }
 
-export const isAbsoluteUrl = (url: string) => /^(https?:\/)?\//.test(url)
+export const isAbsoluteUrl = (url?: string) => /^(https?:\/)?\//.test(url!)

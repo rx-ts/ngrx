@@ -3,7 +3,6 @@ import { head } from 'lodash'
 import { LOCALE_STORAGE } from './constants'
 
 declare global {
-  // tslint:disable-next-line: interface-name
   interface NavigatorLanguage {
     browserLanguage?: string
     userLanguage?: string

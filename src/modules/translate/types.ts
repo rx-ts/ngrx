@@ -1,4 +1,4 @@
-import { Arrayable, Nullable } from '../../types/public-api'
+import { Arrayable } from '../../types/public-api'
 
 import { Locale } from './constants'
 
@@ -6,7 +6,6 @@ export interface Translation {
   [key: string]: Arrayable<string | number | boolean | Translation>
 }
 
-// eslint-disable-next-line @typescript-eslint/no-type-alias
 export type Translations = Partial<Record<Locale, Translation>>
 
 export type TranslateKey = string | Partial<Record<Locale, string>>
@@ -18,5 +17,5 @@ export interface TranslateOptions {
   translations?: Translations
   loose?: boolean
   remoteTranslations?: Translations
-  remoteUrl?: Nullable<string>
+  remoteUrl?: string
 }

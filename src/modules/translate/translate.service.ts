@@ -1,15 +1,10 @@
-import { HttpClient } from '@angular/common/http'
-import {
-  Inject,
-  Injectable,
-  OnDestroy,
-  Optional,
-  isDevMode,
-} from '@angular/core'
-import { get, head, template } from 'lodash'
+import { Inject, Injectable, OnDestroy, isDevMode } from '@angular/core'
+import { get, head, isPlainObject, template } from 'lodash'
 import { EMPTY, Observable, Subject, forkJoin, throwError } from 'rxjs'
-import { catchError, finalize, map, takeUntil } from 'rxjs/operators'
+import { ajax } from 'rxjs/ajax'
+import { catchError, filter, finalize, map, takeUntil } from 'rxjs/operators'
 
+import { Nullable } from '../../types/public-api'
 import {
   ObservableInput,
   TEMPLATE_OPTIONS,
@@ -29,47 +24,42 @@ import {
 } from './tokens'
 import { TranslateKey, Translation, Translations } from './types'
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class TranslateService implements OnDestroy {
+  get remoteLoaded() {
+    return this._remoteLoaded
+  }
+
   @ObservableInput(true)
   readonly locale$!: Observable<Locale>
 
   @ObservableInput(true)
   readonly defaultLocale$!: Observable<Locale>
 
-  get remoteLoaded() {
-    return this._remoteLoaded
-  }
-
   @ObservableInput('_remoteLoaded')
   readonly remoteLoaded$!: Observable<boolean | undefined>
 
   private _remoteLoaded?: boolean
+
   private readonly destroy$$ = new Subject<void>()
 
   constructor(
+    @Inject(TOKEN_LOCALES)
+    private readonly locales: Locale[],
     @Inject(TOKEN_LOCALE)
     public locale: Locale,
     @Inject(TOKEN_DEFAULT_LOCALE)
     public defaultLocale: Locale,
-    @Inject(TOKEN_LOCALES)
-    private readonly locales: Locale[],
     @Inject(TOKEN_TRANSLATIONS)
     private readonly translationsList: Array<Readonly<Translations>>,
     @Inject(TOKEN_LOOSE)
     private readonly loose: boolean,
-    @Optional()
     @Inject(TOKEN_BASE_HREF)
     private readonly baseHref: string,
-    @Optional()
     @Inject(TOKEN_REMOTE_TRANSLATIONS)
     private remoteTranslationsList: Array<Readonly<Translations>>,
-    @Optional()
     @Inject(TOKEN_REMOTE_URL)
-    private readonly remoteUrl: string,
-    private readonly http: HttpClient,
+    private readonly remoteUrl?: string,
   ) {
     this._watchLocale()
     this._fetchTranslations()
@@ -86,7 +76,7 @@ export class TranslateService implements OnDestroy {
    */
   get(key: TranslateKey, data?: unknown, ignoreNonExist?: boolean) {
     const translation = this._get(
-      typeof key === 'string' ? key : this._getValue(key),
+      typeof key === 'string' ? key : this._getValue(key)!,
       typeof key !== 'string' || ignoreNonExist,
     )
     if (data != null && typeof data !== 'object') {
@@ -106,16 +96,21 @@ export class TranslateService implements OnDestroy {
       }
       return
     }
-    this.locale = this.locales[
+    const nextLocale = this.locales[
       index === this.locales.length - 1 ? 0 : index + 1
     ]
+
+    if (!nextLocale || this.locale === nextLocale) {
+      return
+    }
+
+    this.locale = nextLocale
   }
 
   /**
    * 从远程 url 模板和区域获取翻译包
    */
   fetchTranslation(remoteUrl: string): Observable<Translations>
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   fetchTranslation(remoteUrl: string, locale: string): Observable<Translation>
   fetchTranslation(remoteUrl: string, locale?: string) {
     if (isDevMode() && LOCALE_PLACEHOLDER_REGEX.exec(remoteUrl) && !locale) {
@@ -123,7 +118,7 @@ export class TranslateService implements OnDestroy {
         '`locale` is required sine the provided remote url contains locale placeholder',
       )
     }
-    return this.http.get(
+    return ajax.getJSON(
       locale ? remoteUrl.replace(LOCALE_PLACEHOLDER_REGEX, locale) : remoteUrl,
     )
   }
@@ -137,9 +132,11 @@ export class TranslateService implements OnDestroy {
   private _fetchTranslations() {
     const { baseHref } = this
     let { remoteUrl } = this
+
     if (!remoteUrl) {
       return
     }
+
     this._remoteLoaded = false
     remoteUrl = head(remoteUrl.split(/[#]/))!
     const isAbsolute = isAbsoluteUrl(remoteUrl)
@@ -155,43 +152,40 @@ export class TranslateService implements OnDestroy {
         throw new TypeError(errorMessage)
       }
     }
+
     if (!isAbsolute) {
       remoteUrl =
         (baseHref.endsWith('/') ? baseHref : baseHref + '/') + remoteUrl
     }
-    const remoteTranslations$: Observable<
-      Partial<Record<Locale, Translation>>
-    > = LOCALE_PLACEHOLDER_REGEX.exec(remoteUrl)
+
+    ;(LOCALE_PLACEHOLDER_REGEX.exec(remoteUrl)
       ? forkJoin(
           this.locales.map(locale =>
-            this.fetchTranslation(remoteUrl, locale).pipe(
-              catchError(() => {
+            this.fetchTranslation(remoteUrl!, locale).pipe(
+              catchError(error => {
                 if (this.loose) {
                   const looseLocale = this._getLooseLocale(locale)
                   if (
                     locale !== looseLocale &&
                     !this.locales.includes(looseLocale)
                   ) {
-                    return this.fetchTranslation(remoteUrl, looseLocale)
+                    return this.fetchTranslation(remoteUrl!, looseLocale)
                   }
                 }
-                return EMPTY
+                return isDevMode() ? throwError(error) : EMPTY
               }),
+              filter(isPlainObject),
               map(translation => ({
                 [locale]: translation,
               })),
             ),
           ),
-        ).pipe(
-          map(_ =>
-            // eslint-disable-next-line @typescript-eslint/unbound-method
-            _.reduce(Object.assign),
-          ),
-        )
+          // eslint-disable-next-line @typescript-eslint/unbound-method
+        ).pipe(map(_ => _.reduce(Object.assign)))
       : this.fetchTranslation(remoteUrl).pipe(
           catchError(error => (isDevMode() ? throwError(error) : EMPTY)),
         )
-    remoteTranslations$
+    )
       .pipe(
         takeUntil(this.destroy$$),
         finalize(() => (this._remoteLoaded = true)),
@@ -212,9 +206,9 @@ export class TranslateService implements OnDestroy {
   }
 
   private _getValue<T>(
-    source?: Partial<Record<Locale, T>>,
+    source: Partial<Record<Locale, T>>,
     locale = this.locale,
-  ): T | undefined {
+  ): Nullable<T> {
     if (!source) {
       return
     }
@@ -232,15 +226,14 @@ export class TranslateService implements OnDestroy {
   }
 
   private _getWithFallback(
-    key?: string,
+    key: string,
     locale = this.locale,
-    translations?: Translations,
-  ): string | undefined {
-    const value = get(this._getValue(translations, locale), key!)
+    translations: Translations,
+  ): Nullable<string> {
+    const value = get(this._getValue(translations, locale), key)
     if (value != null) {
       if (typeof value === 'object') {
         if (isDevMode()) {
-          // tslint:disable-next-line: no-console
           console.warn(
             `The translation for locale: \`${locale}\` and key:\`${key}\` is an object, which could be unexpected`,
           )
@@ -254,9 +247,9 @@ export class TranslateService implements OnDestroy {
   }
 
   private _getBase(
-    key?: string,
+    key: string,
     locale = this.locale,
-    translationsList?: Translations[],
+    translationsList: Translations[],
   ) {
     if (!translationsList || !translationsList.length) {
       return
@@ -269,7 +262,7 @@ export class TranslateService implements OnDestroy {
     }
   }
 
-  private _get(key?: string, ignoreNonExist?: boolean, locale = this.locale) {
+  private _get(key: string, ignoreNonExist?: boolean, locale = this.locale) {
     let value = this._getBase(key, locale, this.remoteTranslationsList)
     if (value == null) {
       value = this._getBase(key, locale, this.translationsList)
@@ -278,7 +271,6 @@ export class TranslateService implements OnDestroy {
       return value
     }
     if (isDevMode() && !ignoreNonExist) {
-      // tslint:disable-next-line: no-console
       console.warn(
         `No translation found for locale: \`${locale}\` and key:\`${key}\`, which could be unexpected`,
       )

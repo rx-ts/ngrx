@@ -6,10 +6,14 @@ module.exports = {
     ...overrides,
     {
       files: '*.ts',
+      settings: {
+        node: {
+          allowModules: ['@rxts/ngrx', 'lodash'],
+        },
+      },
       rules: {
         '@typescript-eslint/member-naming': 0,
         '@typescript-eslint/no-type-alias': 0,
-        'import/order': 0,
       },
     },
     {

@@ -21,7 +21,7 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
   private value!: string
   private lastKey?: Nullable<TranslateKey>
   private lastData?: unknown
-  private lastRemoteLoaded?: boolean
+  private lastRemoteLoaded? = this.translate.remoteLoaded
   private onChange?: Nullable<Subscription>
 
   private readonly destroy$$ = new Subject<void>()
@@ -41,6 +41,7 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
 
   transform(key: TranslateKey, data?: unknown, ignoreNonExist?: boolean) {
     const { remoteLoaded } = this.translate
+    const isLoading = remoteLoaded === false
     if (
       isEqual(key, this.lastKey) &&
       isEqual(data, this.lastData) &&
@@ -51,7 +52,7 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
 
     this.lastData = data
     this.lastRemoteLoaded = remoteLoaded
-    this.updateValue(key, data, ignoreNonExist)
+    this.updateValue(key, data, ignoreNonExist, isLoading)
     this.dispose()
 
     this.onChange = merge(this.translate.locale$, this.translate.defaultLocale$)
@@ -59,7 +60,7 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       .subscribe(() => {
         if (this.lastKey) {
           this.lastKey = null
-          this.updateValue(key, data, ignoreNonExist)
+          this.updateValue(key, data, ignoreNonExist, isLoading)
         }
       })
 
@@ -75,11 +76,15 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
     key: TranslateKey,
     data?: unknown,
     ignoreNonExist?: boolean,
+    isLoading?: boolean,
   ) {
-    const value = this.translate.get(key, data, ignoreNonExist)
-    this.value = value
-    this.lastKey = key
-    this.cdr.markForCheck()
+    const value = this.translate.get(key, data, ignoreNonExist || isLoading)
+    // avoid text slashing on remote loading
+    if (!isLoading || key !== value) {
+      this.value = value
+      this.lastKey = key
+      this.cdr.markForCheck()
+    }
   }
 
   private dispose() {

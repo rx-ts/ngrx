@@ -1,7 +1,5 @@
 import { Translation } from './types'
 
-const translation: Translation = {
+export const en: Translation = {
   language: 'English',
 }
-
-export { translation as en }
