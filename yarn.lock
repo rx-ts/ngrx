@@ -91,10 +91,10 @@
   resolved "https://registry.yarnpkg.com/@1stg/tsconfig/-/tsconfig-0.5.0.tgz#517365d453f99aa8fa258ecad17696b4496b846e"
   integrity sha512-c5qYRR8/ufH74xeRo7KUAixnsT0oxRu11quMgweKPAart7Y3+KgXWVX1oYmu7RJK6V7/pssYYJJZEGZcZKljxA==
 
-"@1stg/tslint-config@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.3.1.tgz#957b795e6cf3a1b44b89ae0a8fcacaf8b4d4cc30"
-  integrity sha512-jVTWxkyvMZfpY2Xa+LpVvPcLNSzn70Qyy3lTwyGDNLYyCGzSkSxam2OQ2BMQA1lPN0SCmDvwfCHQ9G0fItPWwA==
+"@1stg/tslint-config@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.3.2.tgz#d77ed47ececdd390c433b8ca1621e1464fd2bf5c"
+  integrity sha512-9HnXkIqenPEzbIcRyGVFCV/NHESlGKGiEohteOPweA4ImSvSGr9srpSeTqnctlXCWXM8x9cm7yVXqDhw6FX+5w==
   dependencies:
     codelyzer "^5.1.0"
     rxjs-tslint "^0.1.7"
