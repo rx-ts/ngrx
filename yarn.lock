@@ -21,20 +21,20 @@
   resolved "https://registry.yarnpkg.com/@1stg/browserslist-config/-/browserslist-config-0.2.1.tgz#17f52a729468ba7694d7bbde01ede1e01cd9ad54"
   integrity sha512-IRLw6rH5oEN06ai46D0QG6/pfgUpM9NGpBPlepX5Y/SWEXbUodqWOoOeTAJDbqNyRQPp3w24H+bWF11T9rMqEA==
 
-"@1stg/eslint-config@^0.9.3":
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-0.9.3.tgz#3ea65b9b925ea22ae2e95495ca9795bbeedebdfe"
-  integrity sha512-FXtibhcRo7gfO3rpksPykHm9yCPcKz8iiVm6v8eCdxQD4/d9bGMOOlsujLRlo/2Y0APC1MeUfRd44J5h+wRODg==
+"@1stg/eslint-config@^0.10.6":
+  version "0.10.6"
+  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-0.10.6.tgz#bd31250ca56cf8601040f7e8eddfb34f3320393b"
+  integrity sha512-/hu2CJ1HrGxTplnOubDz88DhStaETPGv6BcfU3uYHlQwEk6xe9lGzGMQb8p0qRH5HDjAcjckWlymCPPIxXkA8w==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.2.0"
     "@typescript-eslint/eslint-plugin-tslint" "^2.2.0"
     "@typescript-eslint/parser" "^2.2.0"
     babel-eslint "^11.0.0-beta.0"
-    eslint-config-prettier "^6.1.0"
+    eslint-config-prettier "^6.3.0"
     eslint-config-standard "^14.1.0"
     eslint-config-standard-jsx "^8.1.0"
     eslint-config-standard-react "^9.2.0"
-    eslint-import-resolver-ts "^0.1.0"
+    eslint-import-resolver-ts "^0.3.0"
     eslint-plugin-babel "^5.3.0"
     eslint-plugin-compat "^3.3.0"
     eslint-plugin-import "^2.18.2"
@@ -5452,7 +5452,7 @@ escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-prettier@^6.1.0:
+eslint-config-prettier@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.3.0.tgz#e73b48e59dc49d950843f3eb96d519e2248286a3"
   integrity sha512-EWaGjlDAZRzVFveh2Jsglcere2KK5CJBhkNSa1xs3KfMUGdRiT7lG089eqPdvlzWHpAqaekubOsOMu8W8Yk71A==
@@ -5484,14 +5484,16 @@ eslint-import-resolver-node@^0.3.2:
     debug "^2.6.9"
     resolve "^1.5.0"
 
-eslint-import-resolver-ts@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-import-resolver-ts/-/eslint-import-resolver-ts-0.1.0.tgz#955b5c89585df0e48091df5ca14e721fac999599"
-  integrity sha512-ERVkMIPqYGdTGUvYQ+cOpfkcI7uuRbp7JveygmBgXtmBvkQkk+NK4gWdJi8c7eZ7MVns06GfKaN0PtLqAudOrA==
+eslint-import-resolver-ts@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-import-resolver-ts/-/eslint-import-resolver-ts-0.3.0.tgz#0e872be42d7236c7d6b7583c588ee28f6488a6f6"
+  integrity sha512-Oh98sl9RQ6hdoyZQ/35C7mzdpes1RB1gTUP8/EqaRyuqG4F7EMRwR3Y8vJaBbBTNEHJCL+O4RkTygJx49lMQkw==
   dependencies:
-    debug "^4.0.1"
-    resolve "^1.4.0"
-    tsconfig-paths "^3.6.0"
+    debug "^4.1.1"
+    glob "^7.1.4"
+    is-glob "^4.0.1"
+    resolve "^1.12.0"
+    tsconfig-paths "^3.8.0"
 
 eslint-mdx@^1.4.5:
   version "1.4.5"
@@ -11789,7 +11791,7 @@ resolve-url@^0.2.1:
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
 
-resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.0, resolve@^1.11.1, resolve@^1.3.2, resolve@^1.4.0, resolve@^1.5.0:
+resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.0, resolve@^1.11.1, resolve@^1.12.0, resolve@^1.3.2, resolve@^1.5.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.12.0.tgz#3fc644a35c84a48554609ff26ec52b66fa577df6"
   integrity sha512-B/dOmuoAik5bKcD6s6nXDCjzUKnaDvdkRyAk6rsmsKLipWj4797iothd7jmmUhWTfinVMU+wc56rYKsit2Qy4w==
@@ -13402,13 +13404,23 @@ tsconfig-paths-webpack-plugin@^3.2.0:
     enhanced-resolve "^4.0.0"
     tsconfig-paths "^3.4.0"
 
-tsconfig-paths@^3.4.0, tsconfig-paths@^3.6.0:
+tsconfig-paths@^3.4.0:
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.8.0.tgz#4e34202d5b41958f269cf56b01ed95b853d59f72"
   integrity sha512-zZEYFo4sjORK8W58ENkRn9s+HmQFkkwydDG7My5s/fnfr2YYCaiyXe/HBUcIgU8epEKOXwiahOO+KZYjiXlWyQ==
   dependencies:
     "@types/json5" "^0.0.29"
     deepmerge "^2.0.1"
+    json5 "^1.0.1"
+    minimist "^1.2.0"
+    strip-bom "^3.0.0"
+
+tsconfig-paths@^3.8.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.9.0.tgz#098547a6c4448807e8fcb8eae081064ee9a3c90b"
+  integrity sha512-dRcuzokWhajtZWkQsDVKbWyY+jgcLC5sqJhg2PSgf4ZkH2aHPvaOY8YWGhmjb68b5qqTfasSsDO9k7RUiEmZAw==
+  dependencies:
+    "@types/json5" "^0.0.29"
     json5 "^1.0.1"
     minimist "^1.2.0"
     strip-bom "^3.0.0"
