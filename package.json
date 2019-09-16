@@ -18,7 +18,7 @@
     "build": "ng build"
   },
   "devDependencies": {
-    "@1stg/babel-preset": "^0.6.1",
+    "@1stg/babel-preset": "^0.6.2",
     "@1stg/browserslist-config": "",
     "@1stg/eslint-config": "^0.9.3",
     "@1stg/husky-config": "^0.3.0",
