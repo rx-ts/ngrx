@@ -74,17 +74,17 @@
     remark-preset-lint-recommended "^3.0.3"
     remark-preset-prettier "^0.2.0"
 
-"@1stg/stylelint-config@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@1stg/stylelint-config/-/stylelint-config-0.6.0.tgz#fb4f68de1e8c031c9b45b178ba78acbce42d76cb"
-  integrity sha512-MrQmDWPRUwxYvcK1c8HpYO9edLQep4LHSolCRWyzJfQOqijTmb/nPjINiQlfhE8DOtlz6A+b/Tl0+gwXQGFkBw==
+"@1stg/stylelint-config@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@1stg/stylelint-config/-/stylelint-config-0.6.1.tgz#9eac3ed73161d1f59e1c518a6c51a0f88eb7991f"
+  integrity sha512-sLronw4EqGJVd0SY1w9nN1PgJ7zSN09lav9yaq0d6ZRzHhgvLCbGX3YAgTJFKH37AU0/zVyxCaQGO6TAOmOYXQ==
   dependencies:
     stylelint-config-prettier "^5.2.0"
     stylelint-config-standard "^18.3.0"
     stylelint-high-performance-animation "^1.2.1"
     stylelint-no-unsupported-browser-features "^3.0.2"
     stylelint-prettier "^1.1.1"
-    stylelint-scss "^3.10.0"
+    stylelint-scss "^3.10.1"
 
 "@1stg/tsconfig@^0.5.0":
   version "0.5.0"
@@ -12962,7 +12962,7 @@ stylelint-prettier@^1.1.1:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-stylelint-scss@^3.10.0:
+stylelint-scss@^3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.10.1.tgz#4034a37aebb55a6474c1e8e4de0a8503842f106e"
   integrity sha512-YnzYmcLd5DGGsjfoj44gArjo3TWhMWjS/ytfu+1HKtToZae5ditZOXHBmrgitsHvNk9mzp5WO3/PjA5IO1GpUw==
