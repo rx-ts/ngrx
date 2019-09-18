@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import { Inject, Injectable, OnDestroy, isDevMode } from '@angular/core'
 import { get, head, isPlainObject, template } from 'lodash'
 import { EMPTY, Observable, Subject, forkJoin, throwError } from 'rxjs'
@@ -51,13 +52,13 @@ export class TranslateService implements OnDestroy {
     @Inject(TOKEN_DEFAULT_LOCALE)
     public defaultLocale: Locale,
     @Inject(TOKEN_TRANSLATIONS)
-    private readonly translationsList: Array<Readonly<Translations>>,
+    private readonly translationsList: Nullable<Array<Readonly<Translations>>>,
     @Inject(TOKEN_LOOSE)
     private readonly loose: boolean,
     @Inject(TOKEN_BASE_HREF)
     private readonly baseHref: string,
     @Inject(TOKEN_REMOTE_TRANSLATIONS)
-    private remoteTranslationsList: Array<Readonly<Translations>>,
+    private remoteTranslationsList: Nullable<Array<Readonly<Translations>>>,
     @Inject(TOKEN_REMOTE_URL)
     private readonly remoteUrl?: string,
   ) {
@@ -74,9 +75,9 @@ export class TranslateService implements OnDestroy {
    * 根据翻译 @param key 和上下文数据 @param data 获取翻译内容，翻译项不存在直接返回 key 文本
    * @param ignoreNonExist 开发环境是否忽视不存在的翻译项
    */
-  get(key: TranslateKey, data?: unknown, ignoreNonExist?: boolean) {
+  get(key: TranslateKey, data?: unknown, ignoreNonExist = false) {
     const translation = this._get(
-      typeof key === 'string' ? key : this._getValue(key)!,
+      typeof key === 'string' ? key : this._getValue(key),
       typeof key !== 'string' || ignoreNonExist,
     )
     if (data != null && typeof data !== 'object') {
@@ -129,6 +130,7 @@ export class TranslateService implements OnDestroy {
       .subscribe(locale => localStorage.setItem(LOCALE_STORAGE, locale))
   }
 
+  // eslint-disable-next-line sonarjs/cognitive-complexity
   private _fetchTranslations() {
     const { baseHref } = this
     let { remoteUrl } = this
@@ -138,7 +140,7 @@ export class TranslateService implements OnDestroy {
     }
 
     this._remoteLoaded = false
-    remoteUrl = head(remoteUrl.split(/[#]/))!
+    remoteUrl = head(remoteUrl.split(/#/))
     const isAbsolute = isAbsoluteUrl(remoteUrl)
     if (isDevMode()) {
       let errorMessage
@@ -161,7 +163,7 @@ export class TranslateService implements OnDestroy {
     ;(LOCALE_PLACEHOLDER_REGEX.exec(remoteUrl)
       ? forkJoin(
           this.locales.map(locale =>
-            this.fetchTranslation(remoteUrl!, locale).pipe(
+            this.fetchTranslation(remoteUrl, locale).pipe(
               catchError(error => {
                 if (this.loose) {
                   const looseLocale = this._getLooseLocale(locale)
@@ -169,15 +171,17 @@ export class TranslateService implements OnDestroy {
                     locale !== looseLocale &&
                     !this.locales.includes(looseLocale)
                   ) {
-                    return this.fetchTranslation(remoteUrl!, looseLocale)
+                    return this.fetchTranslation(remoteUrl, looseLocale)
                   }
                 }
                 return isDevMode() ? throwError(error) : EMPTY
               }),
-              filter(isPlainObject),
-              map(translation => ({
-                [locale]: translation,
-              })),
+              filter<Translation>(isPlainObject),
+              map<Translation, Partial<Record<Locale, Translation>>>(
+                translation => ({
+                  [locale]: translation,
+                }),
+              ),
             ),
           ),
           // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -206,7 +210,7 @@ export class TranslateService implements OnDestroy {
   }
 
   private _getValue<T>(
-    source: Partial<Record<Locale, T>>,
+    source: Nullable<Partial<Record<Locale, T>>>,
     locale = this.locale,
   ): Nullable<T> {
     if (!source) {
@@ -232,12 +236,10 @@ export class TranslateService implements OnDestroy {
   ): Nullable<string> {
     const value = get(this._getValue(translations, locale), key)
     if (value != null) {
-      if (typeof value === 'object') {
-        if (isDevMode()) {
-          console.warn(
-            `The translation for locale: \`${locale}\` and key:\`${key}\` is an object, which could be unexpected`,
-          )
-        }
+      if (typeof value === 'object' && isDevMode()) {
+        console.warn(
+          `The translation for locale: \`${locale}\` and key:\`${key}\` is an object, which could be unexpected`,
+        )
       }
       return value.toString()
     }
@@ -249,9 +251,9 @@ export class TranslateService implements OnDestroy {
   private _getBase(
     key: string,
     locale = this.locale,
-    translationsList: Translations[],
+    translationsList: Nullable<Translations[]>,
   ) {
-    if (!translationsList || !translationsList.length) {
+    if (!translationsList || translationsList.length === 0) {
       return
     }
     for (let i = translationsList.length; i > 0; i--) {
@@ -262,7 +264,7 @@ export class TranslateService implements OnDestroy {
     }
   }
 
-  private _get(key: string, ignoreNonExist?: boolean, locale = this.locale) {
+  private _get(key: string, ignoreNonExist = false, locale = this.locale) {
     let value = this._getBase(key, locale, this.remoteTranslationsList)
     if (value == null) {
       value = this._getBase(key, locale, this.translationsList)

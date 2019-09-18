@@ -39,7 +39,7 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       .subscribe(() => this.cdr.markForCheck())
   }
 
-  transform(key: TranslateKey, data?: unknown, ignoreNonExist?: boolean) {
+  transform(key: TranslateKey, data?: unknown, ignoreNonExist = false) {
     const { remoteLoaded } = this.translate
     const isLoading = remoteLoaded === false
     if (
@@ -75,8 +75,8 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
   private updateValue(
     key: TranslateKey,
     data?: unknown,
-    ignoreNonExist?: boolean,
-    isLoading?: boolean,
+    ignoreNonExist = false,
+    isLoading = false,
   ) {
     const value = this.translate.get(key, data, ignoreNonExist || isLoading)
     // avoid text slashing on remote loading

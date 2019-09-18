@@ -76,6 +76,7 @@ export function ObservableInput<
 
     const symbol = Symbol('private property hook')
 
+    // eslint-disable-next-line @typescript-eslint/no-type-alias
     type OT = ObservedValueOf<T[OK]>
 
     type Mixed = T & {

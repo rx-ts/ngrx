@@ -1,26 +1,8 @@
-const { overrides } = require('@1stg/eslint-config/overrides')
-
 module.exports = {
-  extends: '@1stg',
-  overrides: [
-    ...overrides,
-    {
-      files: '*.ts',
-      settings: {
-        node: {
-          allowModules: ['@rxts/ngrx', 'lodash'],
-        },
-      },
-      rules: {
-        '@typescript-eslint/member-naming': 0,
-        '@typescript-eslint/no-type-alias': 0,
-      },
+  extends: '@1stg/eslint-config/loose',
+  settings: {
+    node: {
+      allowModules: ['@rxts/ngrx', 'lodash'],
     },
-    {
-      files: ['*.module.ts', 'module.ts'],
-      rules: {
-        '@typescript-eslint/no-extraneous-class': 0,
-      },
-    },
-  ],
+  },
 }

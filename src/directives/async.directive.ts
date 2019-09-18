@@ -68,8 +68,8 @@ export class AsyncDirective<T, P, E = HttpErrorResponse>
       this.context$,
       this.fetcher$,
       this.params$,
-      this.refetch$$.pipe(startWith(null)),
-      this.reload$$.pipe(startWith(null)),
+      this.refetch$$.pipe(startWith(null as void)),
+      this.reload$$.pipe(startWith(null as void)),
     ])
       .pipe(takeUntil(this.destroy$$))
       .subscribe(([context, fetcher, params]) => {

@@ -1,8 +1,5 @@
 {
-  "extends": ["@1stg/tslint-config/angular"],
-  "rules": {
-    "no-console": [true, "debug", "info", "log", "trace"]
-  },
+  "extends": ["@1stg/tslint-config/angular", "tslint-config-eslint/sonar"],
   "linterOptions": {
     "exclude": ["dist/**"]
   }

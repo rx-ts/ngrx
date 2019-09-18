@@ -1,6 +1,5 @@
 import { TranslateModule } from '@rxts/ngrx'
 import markdown from '@rxts/ngrx/utils/decorators.md'
-// import { select, text } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/angular'
 
 import { SharedModule } from '../shared/shared.module'
