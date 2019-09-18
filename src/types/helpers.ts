@@ -1,5 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-type-alias
 export type AnyArray<T> = T[] | readonly T[]
 
+// eslint-disable-next-line @typescript-eslint/no-type-alias
 export type Arrayable<T, R extends boolean = false> = [R] extends [never]
   ? T | T[]
   : R extends true

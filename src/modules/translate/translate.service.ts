@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import { Inject, Injectable, OnDestroy, isDevMode } from '@angular/core'
 import { get, head, isPlainObject, template } from 'lodash'
 import { EMPTY, Observable, Subject, forkJoin, throwError } from 'rxjs'
@@ -51,13 +52,13 @@ export class TranslateService implements OnDestroy {
     @Inject(TOKEN_DEFAULT_LOCALE)
     public defaultLocale: Locale,
     @Inject(TOKEN_TRANSLATIONS)
-    private readonly translationsList: Array<Readonly<Translations>>,
+    private readonly translationsList: Nullable<Array<Readonly<Translations>>>,
     @Inject(TOKEN_LOOSE)
     private readonly loose: boolean,
     @Inject(TOKEN_BASE_HREF)
     private readonly baseHref: string,
     @Inject(TOKEN_REMOTE_TRANSLATIONS)
-    private remoteTranslationsList: Array<Readonly<Translations>>,
+    private remoteTranslationsList: Nullable<Array<Readonly<Translations>>>,
     @Inject(TOKEN_REMOTE_URL)
     private readonly remoteUrl?: string,
   ) {
@@ -100,6 +101,7 @@ export class TranslateService implements OnDestroy {
       index === this.locales.length - 1 ? 0 : index + 1
     ]
 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!nextLocale || this.locale === nextLocale) {
       return
     }
@@ -174,10 +176,12 @@ export class TranslateService implements OnDestroy {
                 }
                 return isDevMode() ? throwError(error) : EMPTY
               }),
-              filter(isPlainObject),
-              map(translation => ({
-                [locale]: translation,
-              })),
+              filter<Translation>(isPlainObject),
+              map<Translation, Partial<Record<Locale, Translation>>>(
+                translation => ({
+                  [locale]: translation,
+                }),
+              ),
             ),
           ),
           // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -191,6 +195,7 @@ export class TranslateService implements OnDestroy {
         finalize(() => (this._remoteLoaded = true)),
       )
       .subscribe(remoteTranslations => {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (!remoteTranslations) {
           return
         }
@@ -206,7 +211,7 @@ export class TranslateService implements OnDestroy {
   }
 
   private _getValue<T>(
-    source: Partial<Record<Locale, T>>,
+    source: Nullable<Partial<Record<Locale, T>>>,
     locale = this.locale,
   ): Nullable<T> {
     if (!source) {
@@ -249,7 +254,7 @@ export class TranslateService implements OnDestroy {
   private _getBase(
     key: string,
     locale = this.locale,
-    translationsList: Translations[],
+    translationsList: Nullable<Translations[]>,
   ) {
     if (!translationsList || !translationsList.length) {
       return
