@@ -51,7 +51,7 @@
     "@types/lodash-es": "^4.17.3",
     "@types/node": "^12.7.5",
     "@types/storybook__addon-knobs": "^5.0.4",
-    "@types/webpack": "^4.39.1",
+    "@types/webpack": "^4.39.2",
     "@types/webpack-env": "^1.14.0",
     "@types/webpack-merge": "^4.1.5",
     "browserslist": "",
