@@ -39,7 +39,7 @@
     "@angular/forms": "^8.2.10",
     "@angular/platform-browser": "^8.2.10",
     "@angular/platform-browser-dynamic": "^8.2.10",
-    "@babel/core": "^7.6.2",
+    "@babel/core": "^7.6.4",
     "@commitlint/cli": "^8.2.0",
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/addon-console": "^1.2.1",
