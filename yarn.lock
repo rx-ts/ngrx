@@ -30,15 +30,15 @@
   resolved "https://registry.yarnpkg.com/@1stg/browserslist-config/-/browserslist-config-0.2.1.tgz#17f52a729468ba7694d7bbde01ede1e01cd9ad54"
   integrity sha512-IRLw6rH5oEN06ai46D0QG6/pfgUpM9NGpBPlepX5Y/SWEXbUodqWOoOeTAJDbqNyRQPp3w24H+bWF11T9rMqEA==
 
-"@1stg/commitlint-config@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@1stg/commitlint-config/-/commitlint-config-0.2.2.tgz#e3a46723eec2513bcf7f34a850dbd3b33a921aa7"
-  integrity sha512-EkVPTk5ls7y6IYROhRkp98dwXOroSbYYhJGlcfWx7I4mbN7qmEXBkAP5gZa0pbgUlE/1WQmeB4BzRMTy+6hZ8Q==
+"@1stg/commitlint-config@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@1stg/commitlint-config/-/commitlint-config-0.2.3.tgz#27646412bb0c1c1d267821425d84ea1a44665d1f"
+  integrity sha512-w1q/k+MC892vFne7DW0WpzOzoF+W0keDqjhn1o78MROo3/yxyj6HyLtGp8pn0CV0UHhGH9VKNDhqLIr5EDudag==
   dependencies:
     "@commitlint/cli" "^8.2.0"
     "@commitlint/config-conventional" "^8.2.0"
     "@commitlint/config-lerna-scopes" "^8.2.0"
-    "@pkgr/utils" "^0.3.2"
+    "@pkgr/utils" "^0.3.3"
 
 "@1stg/eslint-config@^0.13.4":
   version "0.13.4"
