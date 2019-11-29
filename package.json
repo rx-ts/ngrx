@@ -27,7 +27,7 @@
     "@1stg/prettier-config": "^0.4.2",
     "@1stg/remark-config": "^0.2.2",
     "@1stg/stylelint-config": "^0.7.2",
-    "@1stg/tsconfig": "^0.5.1",
+    "@1stg/tsconfig": "^0.5.5",
     "@1stg/tslint-config": "^0.3.4",
     "@angular-devkit/build-angular": "^0.803.19",
     "@angular-devkit/build-ng-packagr": "^0.803.19",
