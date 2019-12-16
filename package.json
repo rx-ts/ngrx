@@ -52,7 +52,7 @@
     "@types/node": "^12.12.17",
     "@types/storybook__addon-knobs": "^5.0.4",
     "@types/webpack": "^4.41.0",
-    "@types/webpack-env": "^1.14.0",
+    "@types/webpack-env": "^1.14.1",
     "@types/webpack-merge": "^4.1.5",
     "browserslist": "",
     "eslint": "^6.4.0",
