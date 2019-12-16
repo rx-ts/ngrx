@@ -2500,18 +2500,6 @@
     cross-spawn "^7.0.1"
     open "^7.0.0"
 
-"@pkgr/utils@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-0.3.3.tgz#efd1684b7e35b193e9e1293af79a20c2e29000e7"
-  integrity sha512-jAO8ERHh8x1ypFcqdI4LwcNcTJasBeLasGxfm67pyIvIc7rL2HN21gTpQnNUWNwvaTO2siFf9p31Bw0YOX8+mw==
-  dependencies:
-    chalk "^3.0.0"
-    cross-spawn "^7.0.1"
-    is-glob "^4.0.1"
-    open "^7.0.0"
-    tiny-glob "^0.2.6"
-    tslib "^1.10.0"
-
 "@pkgr/utils@^0.3.4":
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-0.3.4.tgz#a68e4ee9e00c8d671cea1b3dac3395f2e72617b6"
@@ -3306,10 +3294,10 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
-"@types/webpack@^4.39.3":
-  version "4.39.3"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.39.3.tgz#1d55f8fce117a325368bf7612950552ee4ed4467"
-  integrity sha512-afGNNuTfKk1YfHrQ+IwF0QhDkSSMIMMt8BRRErTKaGVvWTMABDjT22/4kJ4bRoSzir9LVgxuuceyZ4Z5I82Cyg==
+"@types/webpack@^4.41.0":
+  version "4.41.0"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.0.tgz#b813a044d8b0dec7dfcd7622fdbe327bde06eb9a"
+  integrity sha512-tWkdf9nO0zFgAY/EumUKwrDUhraHKDqCPhwfFR/R8l0qnPdgb9le0Gzhvb7uzVpouuDGBgiE//ZdY+5jcZy2TA==
   dependencies:
     "@types/anymatch" "*"
     "@types/node" "*"
