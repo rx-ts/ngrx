@@ -18,7 +18,7 @@
     "build": "ng build"
   },
   "devDependencies": {
-    "@1stg/babel-preset": "^0.9.3",
+    "@1stg/babel-preset": "^0.9.4",
     "@1stg/browserslist-config": "",
     "@1stg/commitlint-config": "^0.2.3",
     "@1stg/eslint-config": "^0.13.4",
