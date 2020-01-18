@@ -107,17 +107,18 @@
     remark-preset-lint-recommended "^3.0.3"
     remark-preset-prettier "^0.2.2"
 
-"@1stg/stylelint-config@^0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@1stg/stylelint-config/-/stylelint-config-0.7.2.tgz#c74c703dda3f7b06beaf76bae9e098c5693e15dd"
-  integrity sha512-inHh7epongBFQmpKGcvEXOeFvkrYpgQcfz/OZWAMZmEpFOM5PADWqXk6tT9LvaB/+gDhN4rrnWmsopI8M6H7Kg==
+"@1stg/stylelint-config@^0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@1stg/stylelint-config/-/stylelint-config-0.7.5.tgz#677abc2327d6d25271632305320f958a3ccc9525"
+  integrity sha512-vq1sYl3qlPhnVn6f8c5YLkZU8zAk9VDtsgQ0ZMP9BKJHCCjov1zIU7CvRw3BFJ6soe4VobDqG/EBinOQx8Tdtw==
   dependencies:
+    "@pkgr/utils" "^0.1.2"
     stylelint-config-prettier "^6.0.0"
     stylelint-config-standard "^19.0.0"
-    stylelint-high-performance-animation "^1.2.1"
+    stylelint-high-performance-animation "^1.3.0"
     stylelint-no-unsupported-browser-features "^3.0.2"
     stylelint-prettier "^1.1.1"
-    stylelint-scss "^3.11.1"
+    stylelint-scss "^3.12.0"
 
 "@1stg/tsconfig@^0.5.5":
   version "0.5.5"
@@ -10059,6 +10060,21 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
+lodash.isboolean@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz#6c2e171db2a257cd96802fd43b01b20d5f5870f6"
+  integrity sha1-bC4XHbKiV82WgC/UOwGyDV9YcPY=
+
+lodash.isregexp@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.isregexp/-/lodash.isregexp-4.0.1.tgz#e13e647b30cd559752a04cd912086faf7da1c30b"
+  integrity sha1-4T5kezDNVZdSoEzZEghvr32hwws=
+
+lodash.isstring@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
+  integrity sha1-1SfftUVuynzJu5XV2ur4i6VKVFE=
+
 lodash.kebabcase@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz#8489b1cb0d29ff88195cceca448ff6d6cc295c36"
@@ -14841,10 +14857,10 @@ stylelint-config-standard@^19.0.0:
   dependencies:
     stylelint-config-recommended "^3.0.0"
 
-stylelint-high-performance-animation@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/stylelint-high-performance-animation/-/stylelint-high-performance-animation-1.2.1.tgz#544ab13978707c19d1d581d079aa848fa709717a"
-  integrity sha512-jHkX30yZP7Z7/EdbS7XyBEn7tWgTZAeJ0XnRXIS776QnVy4FBzsE2GcY9oQPJOPk/z7DdBr4jjpSuh9tn8UeIw==
+stylelint-high-performance-animation@^1.3.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/stylelint-high-performance-animation/-/stylelint-high-performance-animation-1.4.0.tgz#4130d78b432b83bf8fb39813a144d6d0cf2a9236"
+  integrity sha512-GFJXlilgB8wK3tQl8fvCjHW++N1uRQ3GaJ5UtKWoyjPTjOi9efZQN0L1kIcQ1PNUIfQunB5RfuVc6PTkl6LLRA==
 
 stylelint-no-unsupported-browser-features@^3.0.2:
   version "3.0.2"
@@ -14862,12 +14878,14 @@ stylelint-prettier@^1.1.1:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-stylelint-scss@^3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.11.1.tgz#016a6c1a6e051faed0a186b3698fcf24b0e90b0d"
-  integrity sha512-0FZNSfy5X2Or4VRA3Abwfrw1NHrI6jHT8ji9xSwP8Re2Kno0i90qbHwm8ohPO0kRB1RP9x1vCYBh4Tij+SZjIg==
+stylelint-scss@^3.12.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.13.0.tgz#875c76e61d95333c4f0ae737a310be6f1d27d780"
+  integrity sha512-SaLnvQyndaPcsgVJsMh6zJ1uKVzkRZJx+Wg/stzoB1mTBdEmGketbHrGbMQNymzH/0mJ06zDSpeCDvNxqIJE5A==
   dependencies:
-    lodash "^4.17.15"
+    lodash.isboolean "^3.0.3"
+    lodash.isregexp "^4.0.1"
+    lodash.isstring "^4.0.1"
     postcss-media-query-parser "^0.2.3"
     postcss-resolve-nested-selector "^0.1.1"
     postcss-selector-parser "^6.0.2"
