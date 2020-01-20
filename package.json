@@ -28,7 +28,7 @@
     "@1stg/remark-config": "^0.2.2",
     "@1stg/stylelint-config": "^0.7.5",
     "@1stg/tsconfig": "^0.5.5",
-    "@1stg/tslint-config": "^0.3.4",
+    "@1stg/tslint-config": "^0.5.8",
     "@angular-devkit/build-angular": "^0.803.23",
     "@angular-devkit/build-ng-packagr": "^0.803.23",
     "@angular/cli": "^8.3.23",
