@@ -78,15 +78,17 @@
     "@commitlint/cli" "^8.3.5"
     lint-staged "^9.5.0"
 
-"@1stg/lint-staged@^0.8.12":
-  version "0.8.12"
-  resolved "https://registry.yarnpkg.com/@1stg/lint-staged/-/lint-staged-0.8.12.tgz#e455a835830729eec0cdf5ce1ae2eeb5dac5d8b6"
-  integrity sha512-pybdQmVoBgB/xS+wVUk4SS//4mE3eEykJ8eTELvrBlskKa51AcPaOi8FRRzqPr0Ab5iML2O30yRTsagxIg8ISw==
+"@1stg/lint-staged@^0.10.5":
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/@1stg/lint-staged/-/lint-staged-0.10.5.tgz#e78ef0de4c560faf36320a348a63e9c564f799ce"
+  integrity sha512-MDwgkDcaVZmKYNOYu+LrKVcRm3bULc7nHyhToSrXy04fSooVEmzHUi5dMva59hNPFk9GBMzIzPf8ZoDPo/v+cQ==
   dependencies:
-    "@pkgr/utils" "^0.1.2"
-    "@prettier/plugin-pug" "^1.0.5"
+    "@pkgr/utils" "^0.3.4"
+    "@prettier/plugin-pug" "^1.1.4"
+    "@prettier/plugin-ruby" "^0.17.0"
     cross-env "^6.0.3"
-    prettier-plugin-sh "^0.2.1"
+    prettier "^1.19.1"
+    prettier-plugin-sh "^0.2.4"
     prettier-plugin-toml "^0.3.1"
 
 "@1stg/prettier-config@^0.4.3":
@@ -3354,12 +3356,19 @@
     prettier "~1.18.2"
     pug-lexer "~4.1.0"
 
-"@prettier/plugin-pug@^1.0.5":
+"@prettier/plugin-pug@^1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@prettier/plugin-pug/-/plugin-pug-1.1.4.tgz#9086b18a3a05bfba35e248fb2fe39bbd785392cd"
   integrity sha512-CPyDk+FIHUc/Q5aZfKS00GOywDOcyVCZjgoqenUPUKtpgEKQN6FfaFWgSxCxrTgImmyvctHw6y3+h6XnIm9veQ==
   dependencies:
     pug-lexer "~4.1.0"
+
+"@prettier/plugin-ruby@^0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@prettier/plugin-ruby/-/plugin-ruby-0.17.0.tgz#606d0dd37b1b27c75e081249e53d0e5c4bb31396"
+  integrity sha512-ydbGWPrRQy2/vdsEAI9Htwbk39t4ITv3/6G6I5gZ6Qe9uZjUw25KefSmWg62zm7UCHK60ad9VUocfZIz/lGwEA==
+  dependencies:
+    prettier ">=1.10"
 
 "@reach/router@^1.2.1":
   version "1.2.1"
@@ -12023,6 +12032,13 @@ prettier-plugin-sh@^0.2.1:
   dependencies:
     mvdan-sh "^0.4.0"
 
+prettier-plugin-sh@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-sh/-/prettier-plugin-sh-0.2.4.tgz#1aedfc838f10ce9f279cc119a2a8091def03a3ca"
+  integrity sha512-mDDrf+1HURUTDtD0Vd7KMC7ZLM6SZD9zkXl7sEQsyyZK0SD6YLe67X66MqNOkW8mvW2k5fu4FFHjBjnx55/rEg==
+  dependencies:
+    mvdan-sh "^0.4.0"
+
 prettier-plugin-toml@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/prettier-plugin-toml/-/prettier-plugin-toml-0.3.1.tgz#71b5291ef9c2a20865d2dfe1dbc24435bcb596b5"
@@ -12030,6 +12046,11 @@ prettier-plugin-toml@^0.3.1:
   dependencies:
     "@toml-tools/parser" "^0.3.1"
     prettier "^1.16.0"
+
+prettier@>=1.10, prettier@^1.19.1:
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
+  integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
 
 prettier@^1.16.0, prettier@^1.16.4, prettier@^1.18.2, prettier@~1.18.2:
   version "1.18.2"
