@@ -21,7 +21,7 @@
     "@1stg/babel-preset": "^0.9.6",
     "@1stg/browserslist-config": "",
     "@1stg/commitlint-config": "^0.2.6",
-    "@1stg/eslint-config": "^0.13.6",
+    "@1stg/eslint-config": "^0.16.2",
     "@1stg/husky-config": "^0.4.4",
     "@1stg/lint-staged": "^0.8.12",
     "@1stg/prettier-config": "^0.4.3",
