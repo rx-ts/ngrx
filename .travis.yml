@@ -13,21 +13,10 @@ before_install:
 script:
   - yarn lint
   - yarn build
-  - yarn build-storybook
 
 deploy:
   - provider: script
     skip_cleanup: true
     script: bash deploy.sh
-    on:
-      branch: master
-  - provider: pages
-    email: admin@1stg.me
-    name: JounQin
-    skip_cleanup: true
-    github_token: $GH_TOKEN
-    keep_history: true
-    allow_empty_commit: false
-    local_dir: storybook-static
     on:
       branch: master

@@ -10,12 +10,13 @@
     "src"
   ],
   "scripts": {
-    "dev": "start-storybook -p 9001",
-    "lint:scss": "stylelint .storybook/**/*.scss",
-    "lint:es": "eslint . --ext md,js,ts -f friendly",
-    "lint:ts": "tslint -p . -t stylish",
-    "lint": "run-p lint:*",
     "build": "ng build",
+    "dev": "start-storybook -p 9001",
+    "lint": "run-p lint:*",
+    "lint:es": "eslint . --ext md,js,ts -f friendly",
+    "lint:scss": "stylelint .storybook/**/*.scss",
+    "lint:ts": "tslint -p . -t stylish",
+    "now-build": "build-storybook",
     "postinstall": "yarn-deduplicate"
   },
   "devDependencies": {

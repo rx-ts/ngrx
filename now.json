@@ -1,0 +1,16 @@
+{
+  "name": "ngrx",
+  "version": 2,
+  "github": {
+    "silent": true
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "outputDirectory": "storybook-static"
+      }
+    }
+  ]
+}
