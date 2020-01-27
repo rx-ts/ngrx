@@ -2,29 +2,29 @@
 # yarn lockfile v1
 
 
-"@1stg/app-config@^0.1.21":
-  version "0.1.21"
-  resolved "https://registry.yarnpkg.com/@1stg/app-config/-/app-config-0.1.21.tgz#15dc1745e89f2adff5fbfd21ca209c6604dcdc06"
-  integrity sha512-lw7ZhWGJuOH51lEv6i+DSgTQjfip0z6kaFFv73jDLyWclzbsUlsrvB6FoydDuBEJaeC1NQB6cGIxiDcs8GnZMQ==
+"@1stg/app-config@^0.1.22":
+  version "0.1.22"
+  resolved "https://registry.yarnpkg.com/@1stg/app-config/-/app-config-0.1.22.tgz#ffa9dd906fc3fcf52ee0cd604391aec94070b6a5"
+  integrity sha512-4rugZedThlM9uZR7WIac6iZ09eJaieatfdSXiuY6zY1sggyREKpyX5l0DrUX4sKw0dHYG+VIybwryket6MsTnw==
   dependencies:
-    "@1stg/babel-preset" "^0.9.6"
+    "@1stg/babel-preset" "^0.9.7"
     "@1stg/browserslist-config" "^0.3.1"
-    "@1stg/commitlint-config" "^0.2.6"
-    "@1stg/eslint-config" "^0.16.2"
-    "@1stg/husky-config" "^0.4.4"
-    "@1stg/lint-staged" "^0.10.5"
+    "@1stg/commitlint-config" "^0.2.7"
+    "@1stg/eslint-config" "^0.16.3"
+    "@1stg/husky-config" "^0.4.5"
+    "@1stg/lint-staged" "^0.10.6"
     "@1stg/postcss-config" "^0.5.1"
-    "@1stg/prettier-config" "^0.6.6"
+    "@1stg/prettier-config" "^0.6.7"
     "@1stg/remark-config" "^0.2.2"
-    "@1stg/stylelint-config" "^0.8.9"
+    "@1stg/stylelint-config" "^0.8.10"
     "@1stg/tsconfig" "^0.7.2"
     "@babel/core" "^7.8.3"
     "@pkgr/es-modules" "^0.2.1"
     "@pkgr/imagemin" "^0.3.3"
-    browserslist "^4.8.3"
+    browserslist "^4.8.5"
     eslint "^6.8.0"
-    husky "^4.0.10"
-    lint-staged "^9.5.0"
+    husky "^4.2.1"
+    lint-staged "^10.0.2"
     postcss "^7.0.26"
     prettier "^1.19.1"
     stylelint "^13.0.0"
@@ -53,6 +53,29 @@
     core-js "^3.6.4"
     fast-async "^7.0.6"
 
+"@1stg/babel-preset@^0.9.7":
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/@1stg/babel-preset/-/babel-preset-0.9.7.tgz#5104cb485775bd898a698d4c483056e1fca197fc"
+  integrity sha512-4kh+VMtp4pLu5v6Q93tXBzcFu2likU1X/6ZnX5XYpXN/VefmmQQJKNVRS87TGGhBcVCvDvJY5fmR8gY6LA4HZg==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.8.3"
+    "@babel/plugin-proposal-class-properties" "^7.8.3"
+    "@babel/plugin-proposal-decorators" "^7.8.3"
+    "@babel/preset-env" "^7.8.3"
+    "@babel/preset-react" "^7.8.3"
+    "@babel/preset-typescript" "^7.8.3"
+    "@pkgr/utils" "^0.3.5"
+    "@vue/babel-helper-vue-jsx-merge-props" "^1.0.0"
+    "@vue/babel-preset-jsx" "^1.1.2"
+    babel-plugin-import "^1.13.0"
+    babel-plugin-transform-async-to-promises "^0.8.15"
+    babel-plugin-transform-react-remove-prop-types "^0.4.24"
+    babel-plugin-transform-remove-console "^6.9.4"
+    babel-plugin-transform-typescript-metadata "^0.2.2"
+    babel-preset-proposal-typescript "^1.5.0"
+    core-js "^3.6.4"
+    fast-async "^7.0.6"
+
 "@1stg/browserslist-config@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@1stg/browserslist-config/-/browserslist-config-0.3.1.tgz#56e546bbc5c6f0980d935194d21daa2c8792b7f5"
@@ -67,6 +90,16 @@
     "@commitlint/config-conventional" "^8.3.4"
     "@commitlint/config-lerna-scopes" "^8.3.4"
     "@pkgr/utils" "^0.3.4"
+
+"@1stg/commitlint-config@^0.2.7":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@1stg/commitlint-config/-/commitlint-config-0.2.7.tgz#dfba9cb0510e320be300c2fb775a76465490e1ae"
+  integrity sha512-erDqm2E48CbLkoXYGRNV7oJRcMBlVEQw7DzU8i3WZQZeaf4zkrnjL6alZ7oiMD7LYZN1lM4Rv8A4IOoRvOMQjw==
+  dependencies:
+    "@commitlint/cli" "^8.3.5"
+    "@commitlint/config-conventional" "^8.3.4"
+    "@commitlint/config-lerna-scopes" "^8.3.4"
+    "@pkgr/utils" "^0.3.5"
 
 "@1stg/eslint-config@^0.16.2":
   version "0.16.2"
@@ -100,6 +133,38 @@
     is-glob "^4.0.1"
     tiny-glob "^0.2.6"
 
+"@1stg/eslint-config@^0.16.3":
+  version "0.16.3"
+  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-0.16.3.tgz#a60cd26770d6dae375ca8f90d698b993e47867c4"
+  integrity sha512-agETRtG0kLxcv8IeWwptoje5o4U009UoPFvjQawsbxqpVrcb6jtI6GkoiCS5wZM62NJDdc1L5vQnXQH9Gwt7OA==
+  dependencies:
+    "@pkgr/utils" "^0.3.5"
+    "@typescript-eslint/eslint-plugin" "^2.17.0"
+    "@typescript-eslint/eslint-plugin-tslint" "^2.17.0"
+    "@typescript-eslint/parser" "^2.17.0"
+    babel-eslint "^10.0.3"
+    eslint-config-prettier "^6.9.0"
+    eslint-config-standard "^14.1.0"
+    eslint-config-standard-jsx "^8.1.0"
+    eslint-config-standard-react "^9.2.0"
+    eslint-formatter-friendly "^7.0.0"
+    eslint-import-resolver-ts "^0.4.2"
+    eslint-plugin-babel "^5.3.0"
+    eslint-plugin-import "^2.20.0"
+    eslint-plugin-jest "^23.6.0"
+    eslint-plugin-mdx "^1.6.8"
+    eslint-plugin-node "^11.0.0"
+    eslint-plugin-prettier "^3.1.2"
+    eslint-plugin-promise "^4.2.1"
+    eslint-plugin-react "^7.18.0"
+    eslint-plugin-react-hooks "^2.3.0"
+    eslint-plugin-sonarjs "^0.5.0"
+    eslint-plugin-standard "^4.0.1"
+    eslint-plugin-unicorn "^15.0.1"
+    eslint-plugin-vue "^6.1.2"
+    is-glob "^4.0.1"
+    tiny-glob "^0.2.6"
+
 "@1stg/husky-config@^0.4.4":
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/@1stg/husky-config/-/husky-config-0.4.4.tgz#49717c47986022527d7cce47e98c0ee1a3644707"
@@ -107,6 +172,13 @@
   dependencies:
     "@commitlint/cli" "^8.3.5"
     lint-staged "^9.5.0"
+
+"@1stg/husky-config@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@1stg/husky-config/-/husky-config-0.4.5.tgz#a3d3e33fe34da0bc1513ed6ffa838a1b715c8e24"
+  integrity sha512-zDeFT27wB5RwHgeKI+OaGromcePkZU5D0BhhqCGu0waHrGB3Otxssq13l7cG4WHAmihpO/bDsmckpGzLwuL1ow==
+  dependencies:
+    "@commitlint/cli" "^8.3.5"
 
 "@1stg/lib-config@^0.1.19":
   version "0.1.19"
@@ -142,6 +214,19 @@
     prettier-plugin-sh "^0.2.4"
     prettier-plugin-toml "^0.3.1"
 
+"@1stg/lint-staged@^0.10.6":
+  version "0.10.6"
+  resolved "https://registry.yarnpkg.com/@1stg/lint-staged/-/lint-staged-0.10.6.tgz#051391ccca652bcd13595db13670f42758bbead8"
+  integrity sha512-ywcgjG3m23jjtKO9Vgs7QXWxuy/84k9X7EQ1yTP9GZAEpS80zwQYMqOvD17HgkPbtPsZTQ4kG4G4U4+BdHc+SA==
+  dependencies:
+    "@pkgr/utils" "^0.3.5"
+    "@prettier/plugin-pug" "^1.1.5"
+    "@prettier/plugin-ruby" "^0.17.0"
+    cross-env "^7.0.0"
+    prettier "^1.19.1"
+    prettier-plugin-sh "^0.2.4"
+    prettier-plugin-toml "^0.3.1"
+
 "@1stg/postcss-config@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@1stg/postcss-config/-/postcss-config-0.5.1.tgz#f7720389827bb1722e0bc3b5112572c8a8e72954"
@@ -167,6 +252,17 @@
     prettier-plugin-sh "^0.2.4"
     prettier-plugin-toml "^0.3.1"
 
+"@1stg/prettier-config@^0.6.7":
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/@1stg/prettier-config/-/prettier-config-0.6.7.tgz#a391e0576f903ff1ba905c3883574038cfd61909"
+  integrity sha512-v5d4gJrTYV5BM/6LUPptfAzbq/arNtSkBVnvCQqFWWvrDv/nGlb/856VCkl4a4XeM9wE0qRJH0q/v3rKFWtORA==
+  dependencies:
+    "@prettier/plugin-pug" "^1.1.5"
+    "@prettier/plugin-ruby" "^0.17.0"
+    prettier-plugin-pkg "^0.4.6"
+    prettier-plugin-sh "^0.2.4"
+    prettier-plugin-toml "^0.3.1"
+
 "@1stg/remark-config@^0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@1stg/remark-config/-/remark-config-0.2.2.tgz#3f35906383fa966a67e2aa54fef44e07f6f1a463"
@@ -178,12 +274,12 @@
     remark-preset-lint-recommended "^3.0.3"
     remark-preset-prettier "^0.2.2"
 
-"@1stg/stylelint-config@^0.8.9":
-  version "0.8.9"
-  resolved "https://registry.yarnpkg.com/@1stg/stylelint-config/-/stylelint-config-0.8.9.tgz#65e3f8a72f0cc5bb020d3e93f132eb2d16ccf143"
-  integrity sha512-sk9xHoUzlHZVgrV5wRUcpBkFseK8HH+ZCRmz1C5m3rURnDjpnullEOcRE95y5yA50/Wj6YGHfskX2LGaXrUVEw==
+"@1stg/stylelint-config@^0.8.10":
+  version "0.8.10"
+  resolved "https://registry.yarnpkg.com/@1stg/stylelint-config/-/stylelint-config-0.8.10.tgz#c8c1831594ea7f06df65fd12ecb025f9052b363c"
+  integrity sha512-ABiqCEDh5lztjLHFXT2BqazOcAW/v3K3dfuUBKs/Kxi6JUQrPdy4Wva6P2nCrJf+8Q61uXuYsGYgXLb2hoCUjw==
   dependencies:
-    "@pkgr/utils" "^0.3.4"
+    "@pkgr/utils" "^0.3.5"
     stylelint-config-prettier "^8.0.1"
     stylelint-config-standard "^19.0.0"
     stylelint-high-performance-animation "^1.4.0"
@@ -2048,7 +2144,7 @@
   resolved "https://registry.yarnpkg.com/@pkgr/umd-globals/-/umd-globals-0.3.0.tgz#ba82ddc4b6c2f864b4635fa8a6257f65f57b40b3"
   integrity sha512-tnSeL23iFiqgmN6ISWG5cTJ/Cv7Kol81MolfPowYj63rAtEXyr0p1uHBXxFWUyM7WNUGJSUw98xdOdTzh1+BaQ==
 
-"@pkgr/utils@^0.3.4":
+"@pkgr/utils@^0.3.4", "@pkgr/utils@^0.3.5":
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-0.3.5.tgz#7315837f12ef6db87d246d236ce0683fe90520d5"
   integrity sha512-Bg/tDHDGJ71b8ma8zdf6hUaCjQvJSySZT4jtsfEXNHBiEzz6PKtZp1fDv7cxZYI+4PrlI0Fgcb56bE7EHih1IA==
@@ -2060,7 +2156,7 @@
     tiny-glob "^0.2.6"
     tslib "^1.10.0"
 
-"@prettier/plugin-pug@^1.1.4":
+"@prettier/plugin-pug@^1.1.4", "@prettier/plugin-pug@^1.1.5":
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/@prettier/plugin-pug/-/plugin-pug-1.1.5.tgz#6e84e0a105d70f60389913d07be79c9cfbd1a1e3"
   integrity sha512-MHqXRj006dJoGbWZWmNGedBIkOybEnFDIJTUtcXNzJcO9uhy9rBoP5dJ61QpFEIb7ufgFgA9qd2Di29RD87eKw==
@@ -3047,7 +3143,7 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@typescript-eslint/eslint-plugin-tslint@^2.16.0":
+"@typescript-eslint/eslint-plugin-tslint@^2.16.0", "@typescript-eslint/eslint-plugin-tslint@^2.17.0":
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin-tslint/-/eslint-plugin-tslint-2.17.0.tgz#9c4ffa602f9ea81950b314d9a750723d0dc2707c"
   integrity sha512-WpD+s4GmDObQhzpnbDbm/Mwk51UYunKAYY+GBIEi/l2zzACRllo8DvOtxwivtt5oFC6CuNDPo0yGW7qkOBX38Q==
@@ -3055,7 +3151,7 @@
     "@typescript-eslint/experimental-utils" "2.17.0"
     lodash "^4.17.15"
 
-"@typescript-eslint/eslint-plugin@^2.16.0":
+"@typescript-eslint/eslint-plugin@^2.16.0", "@typescript-eslint/eslint-plugin@^2.17.0":
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.17.0.tgz#880435a9f9bdd50b45fa286ba63fed723d73c837"
   integrity sha512-tg/OMOtPeXlvk0ES8mZzEZ4gd1ruSE03nsKcK+teJhxYv5CPCXK6Mb/OK6NpB4+CqGTHs4MVeoSZXNFqpT1PyQ==
@@ -3075,7 +3171,7 @@
     "@typescript-eslint/typescript-estree" "2.17.0"
     eslint-scope "^5.0.0"
 
-"@typescript-eslint/parser@^2.16.0":
+"@typescript-eslint/parser@^2.16.0", "@typescript-eslint/parser@^2.17.0":
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-2.17.0.tgz#627f79586d868edbab55f46a6b183cdc341aea1d"
   integrity sha512-k1g3gRQ4fwfJoIfgUpz78AovicSWKFANmvTfkAHP24MgJHjWfZI6ya7tsQZt1sLczvP4G9BE5G5MgADHdmJB/w==
@@ -4574,7 +4670,7 @@ browserslist@4.8.3:
     electron-to-chromium "^1.3.322"
     node-releases "^1.1.44"
 
-browserslist@^4.0.0, browserslist@^4.1.1, browserslist@^4.6.0, browserslist@^4.6.2, browserslist@^4.6.3, browserslist@^4.6.4, browserslist@^4.8.2, browserslist@^4.8.3:
+browserslist@^4.0.0, browserslist@^4.1.1, browserslist@^4.6.0, browserslist@^4.6.2, browserslist@^4.6.3, browserslist@^4.6.4, browserslist@^4.8.2, browserslist@^4.8.3, browserslist@^4.8.5:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.8.5.tgz#691af4e327ac877b25e7a3f7ee869c4ef36cdea3"
   integrity sha512-4LMHuicxkabIB+n9874jZX/az1IaZ5a+EUuvD7KFOu9x/Bd5YHyO0DIz2ls/Kl8g0ItS4X/ilEgf4T1Br0lgSg==
@@ -5681,6 +5777,13 @@ cross-env@^6.0.3:
   integrity sha512-+KqxF6LCvfhWvADcDPqo64yVIB31gv/jQulX2NGzKS/g3GEVz6/pt4wjHFtFWsHMddebWD/sDthJemzM4MaAag==
   dependencies:
     cross-spawn "^7.0.0"
+
+cross-env@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-7.0.0.tgz#5a3b2ddce51ec713ea58f2fb79ce22e65b4f5479"
+  integrity sha512-rV6M9ldNgmwP7bx5u6rZsTbYidzwvrwIYZnT08hSGLcQCcggofgFW+sNe7IhA1SRauPS0QuLbbX+wdNtpqE5CQ==
+  dependencies:
+    cross-spawn "^7.0.1"
 
 cross-spawn@6.0.5, cross-spawn@^6.0.0, cross-spawn@^6.0.5:
   version "6.0.5"
@@ -6958,6 +7061,17 @@ eslint-mdx@^1.6.5:
     tslib "^1.10.0"
     unified "^8.4.2"
 
+eslint-mdx@^1.6.8:
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/eslint-mdx/-/eslint-mdx-1.6.8.tgz#7ef43676497dcab08e741d66fa7cea52b3fa6b0d"
+  integrity sha512-2ySBt+w1P2iZeYGNJwagvD5KCmRPySWIxwXfI+yUpnodQWx5lBRYDZvuac9dB1LqAxgEVbNW/fNqth5+2+N4Yg==
+  dependencies:
+    espree "^6.1.2"
+    remark-mdx "^1.5.5"
+    remark-parse "^7.0.2"
+    tslib "^1.10.0"
+    unified "^8.4.2"
+
 eslint-module-utils@^2.4.1:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/eslint-module-utils/-/eslint-module-utils-2.5.2.tgz#7878f7504824e1b857dd2505b59a8e5eda26a708"
@@ -7016,6 +7130,23 @@ eslint-plugin-mdx@^1.6.5:
     eslint-mdx "^1.6.5"
     eslint-plugin-react ">=7.0.0"
     remark-mdx "^1.5.2"
+    remark-parse "^7.0.2"
+    remark-stringify "^7.0.4"
+    tslib "^1.10.0"
+    unified "^8.4.2"
+    vfile "^4.0.2"
+  optionalDependencies:
+    rebass "^4.0.7"
+
+eslint-plugin-mdx@^1.6.8:
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-mdx/-/eslint-plugin-mdx-1.6.8.tgz#8ef46d97fea66969afccfd6fb886ff7ec1f2472f"
+  integrity sha512-r/MEhyl2YAs5A0Lmo6r14t4/ko4UTN8W8fuk0CXJeXNTqPGLcI+1quQOIMSLUZbRHaNU4xQ0K7K7kuofmJRRbA==
+  dependencies:
+    cosmiconfig "^6.0.0"
+    eslint-mdx "^1.6.8"
+    eslint-plugin-react ">=7.0.0"
+    remark-mdx "^1.5.5"
     remark-parse "^7.0.2"
     remark-stringify "^7.0.4"
     tslib "^1.10.0"
@@ -7346,6 +7477,22 @@ execa@^2.0.3:
     is-stream "^2.0.0"
     merge-stream "^2.0.0"
     npm-run-path "^3.0.0"
+    onetime "^5.1.0"
+    p-finally "^2.0.0"
+    signal-exit "^3.0.2"
+    strip-final-newline "^2.0.0"
+
+execa@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-3.4.0.tgz#c08ed4550ef65d858fac269ffc8572446f37eb89"
+  integrity sha512-r9vdGQk4bmCuK1yKQu1KTwcT2zwfWdbdaXfCtAh+5nU/4fSX+JAb7vZGvI5naJrQlvONrEB20jeruESI69530g==
+  dependencies:
+    cross-spawn "^7.0.0"
+    get-stream "^5.0.0"
+    human-signals "^1.1.1"
+    is-stream "^2.0.0"
+    merge-stream "^2.0.0"
+    npm-run-path "^4.0.0"
     onetime "^5.1.0"
     p-finally "^2.0.0"
     signal-exit "^3.0.2"
@@ -8893,6 +9040,11 @@ https-proxy-agent@^2.2.3:
     agent-base "^4.3.0"
     debug "^3.1.0"
 
+human-signals@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
+  integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
+
 humanize-ms@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/humanize-ms/-/humanize-ms-1.2.1.tgz#c46e3159a293f6b896da29316d8b6fe8bb79bbed"
@@ -8904,6 +9056,22 @@ husky@^4.0.10:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/husky/-/husky-4.2.0.tgz#257dc349b1b2c7608351b6fe4cded003c5235819"
   integrity sha512-UcEAvGAZVDyzYSxiguMBEbfxqYkVk/HD2UPTKlgDbVW3QB9/Dm3TNDrGwswkrcDfBTRzRIldiTZAyMU6DP9/PA==
+  dependencies:
+    chalk "^3.0.0"
+    ci-info "^2.0.0"
+    compare-versions "^3.5.1"
+    cosmiconfig "^6.0.0"
+    find-versions "^3.2.0"
+    opencollective-postinstall "^2.0.2"
+    pkg-dir "^4.2.0"
+    please-upgrade-node "^3.2.0"
+    slash "^3.0.0"
+    which-pm-runs "^1.0.0"
+
+husky@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-4.2.1.tgz#b09f1bd9129e6c323cc515dc17081d0615e2d7c1"
+  integrity sha512-Qa0lRreeIf4Tl92sSs42ER6qc3hzoyQPPorzOrFWfPEVbdi6LuvJEqWKPk905fOWIR76iBpp7ECZNIwk+a8xuQ==
   dependencies:
     chalk "^3.0.0"
     ci-info "^2.0.0"
@@ -10736,6 +10904,25 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
+lint-staged@^10.0.2:
+  version "10.0.2"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-10.0.2.tgz#cfdd9fa5080b05fc6e29536897da1795bc67c7f9"
+  integrity sha512-ZldhtIfT7bynVa7nmU/1jbK05r9hYQXbIQqZSotqdBCAcGJDEUqaUB7kG3ZCdoe9Qkj6HUM3x2yjCGJRxPUQLA==
+  dependencies:
+    chalk "^3.0.0"
+    commander "^4.0.1"
+    cosmiconfig "^6.0.0"
+    debug "^4.1.1"
+    dedent "^0.7.0"
+    execa "^3.4.0"
+    listr "^0.14.3"
+    log-symbols "^3.0.0"
+    micromatch "^4.0.2"
+    normalize-path "^3.0.0"
+    please-upgrade-node "^3.2.0"
+    string-argv "0.3.1"
+    stringify-object "^3.3.0"
+
 lint-staged@^9.5.0:
   version "9.5.0"
   resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.5.0.tgz#290ec605252af646d9b74d73a0fa118362b05a33"
@@ -12068,6 +12255,13 @@ npm-run-path@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-3.1.0.tgz#7f91be317f6a466efed3c9f2980ad8a4ee8b0fa5"
   integrity sha512-Dbl4A/VfiVGLgQv29URL9xshU8XDY1GeLy+fsaZ1AA8JDSfjvr5P5+pzRbWqRSBxk6/DW7MIh8lTM/PaGnP2kg==
+  dependencies:
+    path-key "^3.0.0"
+
+npm-run-path@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-4.0.1.tgz#b7ecd1e5ed53da8e37a55e1c2269e0b97ed748ea"
+  integrity sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==
   dependencies:
     path-key "^3.0.0"
 
@@ -15299,7 +15493,7 @@ remark-lint@^6.0.0, remark-lint@^6.0.5:
   dependencies:
     remark-message-control "^4.0.0"
 
-remark-mdx@^1.5.2:
+remark-mdx@^1.5.2, remark-mdx@^1.5.5:
   version "1.5.5"
   resolved "https://registry.yarnpkg.com/remark-mdx/-/remark-mdx-1.5.5.tgz#7def5f778c8454b6ef7747ecb2f01376b994b884"
   integrity sha512-w1XW9UzsQ6XAecV59dP8LJWn4tMftaXGwH5LEvUU5uIEJEJvHDE1jkKiPr3ow2IuhjuRfWs3b079Jtnk5qlUgQ==
@@ -16795,7 +16989,7 @@ strict-uri-encode@^1.0.0:
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
 
-string-argv@^0.3.0:
+string-argv@0.3.1, string-argv@^0.3.0:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.3.1.tgz#95e2fbec0427ae19184935f816d74aaa4c5c19da"
   integrity sha512-a1uQGz7IyVy9YwhqjZIZu1c8JO8dNIe20xBmSS6qu9kv++k3JGzCVmprbNN5Kn+BgzD5E7YYwg1CcjuJMRNsvg==
