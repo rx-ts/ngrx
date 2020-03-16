@@ -63,7 +63,7 @@
     "zone.js": "^0.10.2"
   },
   "resolutions": {
-    "typescript": "~3.5.3"
+    "typescript": "~3.8.3"
   },
   "browserslist": [
     "extends @1stg/browserslist-config/modern"
