@@ -36,7 +36,7 @@
     "@babel/core": "^7.11.6",
     "@commitlint/cli": "^8.3.5",
     "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-console": "^1.2.2",
     "@storybook/addon-knobs": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addon-notes": "^5.3.18",
