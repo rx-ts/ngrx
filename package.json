@@ -43,7 +43,7 @@
     "@storybook/addon-storysource": "^5.3.18",
     "@storybook/angular": "^5.3.18",
     "@storybook/source-loader": "^5.3.18",
-    "@types/lodash-es": "^4.17.3",
+    "@types/lodash-es": "^4.17.4",
     "@types/node": "^13.13.34",
     "@types/storybook__addon-knobs": "^5.2.1",
     "@types/webpack": "^4.41.25",
