@@ -60,7 +60,7 @@
     "tslint": "^6.1.1",
     "webpack-merge": "^4.2.2",
     "yarn-deduplicate": "^1.1.1",
-    "zone.js": "^0.10.3"
+    "zone.js": "^0.11.4"
   },
   "resolutions": {
     "typescript": "~3.8.3"
