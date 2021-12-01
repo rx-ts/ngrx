@@ -20,7 +20,7 @@
     "postinstall": "yarn-deduplicate"
   },
   "devDependencies": {
-    "@1stg/app-config": "^0.6.1",
+    "@1stg/app-config": "^2.4.1",
     "@1stg/lib-config": "^0.6.1",
     "@1stg/tslint-config": "^0.9.2",
     "@angular-devkit/build-angular": "^0.1102.15",
