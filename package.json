@@ -34,7 +34,7 @@
     "@angular/platform-browser": "^8.2.14",
     "@angular/platform-browser-dynamic": "^8.2.14",
     "@babel/core": "^7.16.0",
-    "@commitlint/cli": "^8.3.6",
+    "@commitlint/cli": "^16.2.3",
     "@storybook/addon-actions": "^5.3.21",
     "@storybook/addon-console": "^1.2.3",
     "@storybook/addon-knobs": "^5.3.21",
