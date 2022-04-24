@@ -44,7 +44,7 @@
     "@storybook/angular": "^5.3.21",
     "@storybook/source-loader": "^5.3.21",
     "@types/lodash-es": "^4.17.5",
-    "@types/node": "^13.13.51",
+    "@types/node": "^16.11.27",
     "@types/storybook__addon-knobs": "^5.2.1",
     "@types/webpack": "^4.41.32",
     "@types/webpack-env": "^1.16.3",
