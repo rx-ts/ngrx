@@ -3451,10 +3451,10 @@
     "@types/source-list-map" "*"
     source-map "^0.6.1"
 
-"@types/webpack@*", "@types/webpack@^4.41.34":
-  version "4.41.34"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.34.tgz#8cf616be84b39c8fb26f9459d4470a5514df2477"
-  integrity sha512-CN2aOGrR3zbMc2v+cKqzaClYP1ldkpPOgtdNvgX+RmlWCSWxHxpzz6WSCVQZRkF8D60ROlkRzAoEpgjWQ+bd2g==
+"@types/webpack@*", "@types/webpack@^4.41.35":
+  version "4.41.35"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.35.tgz#32903809685caf87ea612e4e74577874359c3749"
+  integrity sha512-XRC6HLGHtNfN8/xWeu1YUQV1GSE+28q8lSqvcJ+0xt/zW9Wmn4j9pCSvaXPyRlCKrl5OuqECQNEJUy2vo8oWqg==
   dependencies:
     "@types/node" "*"
     "@types/tapable" "^1"
