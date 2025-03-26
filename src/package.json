@@ -7,7 +7,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": ">=7.2.16",
-    "@angular/core": ">=7.2.16",
+    "@angular/core": ">=19.2.3",
     "lodash-es": ">=4.17.21",
     "rxjs": ">=6.6.7"
   },
